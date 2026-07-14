@@ -1,0 +1,674 @@
+/* =========================================================
+   RESPONSIVE FIX — Grupo Impoex Premium
+   ========================================================= */
+
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+*,
+*::before,
+*::after {
+  min-width: 0;
+}
+
+img,
+svg,
+video,
+canvas {
+  max-width: 100%;
+  height: auto;
+}
+
+.panel-grid,
+.panel-inner,
+.service-matrix,
+.industry-board,
+.ecosystem-stack,
+.dashboard-card,
+.lead-form,
+.contact-grid,
+.footer-grid {
+  min-width: 0;
+}
+
+.panel h1,
+.panel h2,
+.display-xl,
+.service-card h3,
+.industry-card h3,
+.ecosystem-card h3 {
+  overflow-wrap: anywhere;
+  word-break: normal;
+  hyphens: auto;
+}
+
+/* Menú responsive antes de que se corte */
+@media (max-width: 1080px) {
+  #site-nav-links,
+  #nav-cta {
+    display: none !important;
+  }
+
+  #nav-toggle {
+    display: flex !important;
+  }
+
+  #site-header {
+    padding: 16px clamp(18px, 4vw, 34px);
+    background: rgba(5, 9, 17, 0.86);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  #mobile-nav {
+    display: flex !important;
+    position: fixed;
+    inset: 0;
+    z-index: 199;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(16px, 4vh, 26px);
+    padding: 96px 24px 42px;
+    background:
+      radial-gradient(circle at 50% 12%, rgba(227,43,32,0.18), transparent 38%),
+      rgba(4, 7, 14, 0.98);
+    transform: translateY(-100%);
+    transition: transform 0.48s var(--ease-control);
+  }
+
+  #mobile-nav.is-open {
+    transform: translateY(0);
+  }
+}
+
+/* Cuando la pantalla se reduce, el deck horizontal pasa a scroll vertical */
+@media (max-width: 1080px) {
+  #control-deck {
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  #deck-track {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    transform: none !important;
+  }
+
+  .panel {
+    width: 100% !important;
+    height: auto !important;
+    min-height: auto !important;
+    overflow: visible !important;
+    padding: clamp(112px, 16vh, 150px) clamp(18px, 5vw, 44px) clamp(70px, 10vh, 110px) !important;
+    display: block !important;
+  }
+
+  .panel + .panel {
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .panel-grid,
+  .panel-grid.wide,
+  .contact-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: clamp(28px, 5vw, 46px) !important;
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  .panel h1,
+  .panel h2 {
+    font-size: clamp(2rem, 8.5vw, 4rem) !important;
+    line-height: 1.02;
+    letter-spacing: -0.04em;
+  }
+
+  .panel p.lede {
+    max-width: 660px;
+    font-size: clamp(0.95rem, 2.6vw, 1.08rem);
+    line-height: 1.62;
+  }
+
+  .panel-actions,
+  .deck-stats {
+    flex-wrap: wrap;
+  }
+
+  .hero-command {
+    min-height: clamp(310px, 52vw, 480px) !important;
+  }
+
+  .ecosystem-card:nth-child(2),
+  .ecosystem-card:nth-child(3),
+  .ecosystem-card:nth-child(2):hover,
+  .ecosystem-card:nth-child(3):hover {
+    transform: none !important;
+  }
+
+  .service-matrix,
+  .industry-board {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .dashboard-card {
+    grid-template-columns: 1fr !important;
+    min-height: auto !important;
+  }
+
+  .dash-sidebar {
+    display: none !important;
+  }
+
+  .dash-kpis {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .network-map,
+  .panel-visual.network-map {
+    width: min(100%, 520px) !important;
+    margin: 0 auto;
+  }
+
+  #deck-controls,
+  #scroll-hint {
+    display: none !important;
+  }
+}
+
+/* Celulares */
+@media (max-width: 620px) {
+  .panel {
+    padding: 104px 18px 70px !important;
+  }
+
+  .panel h1,
+  .panel h2 {
+    font-size: clamp(1.72rem, 10.5vw, 2.85rem) !important;
+    letter-spacing: -0.045em;
+  }
+
+  .panel-actions,
+  .submit-row {
+    display: grid !important;
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+
+  .btn-primary,
+  .btn-ghost,
+  .panel-cta {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .deck-stats {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .service-matrix,
+  .industry-board,
+  .form-row,
+  .dash-kpis {
+    grid-template-columns: 1fr !important;
+  }
+
+  .service-card,
+  .industry-card,
+  .ecosystem-card,
+  .lead-form {
+    border-radius: 16px;
+    padding: 20px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Pantallas bajitas de escritorio */
+@media (min-width: 1081px) and (max-height: 780px) {
+  .panel {
+    min-height: 100vh !important;
+    padding-top: calc(var(--header-h) + 4px) !important;
+    padding-bottom: 92px !important;
+  }
+
+  .panel h1,
+  .panel h2 {
+    font-size: clamp(2.25rem, 4.25vw, 4.65rem) !important;
+    margin-bottom: 16px;
+  }
+
+  .panel p.lede {
+    font-size: 0.96rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+
+  .deck-stats {
+    margin-top: 22px;
+  }
+
+  .hero-command,
+  .dashboard-card {
+    min-height: 440px !important;
+  }
+
+  .service-card {
+    min-height: 158px;
+    padding: 18px;
+  }
+
+  .industry-card {
+    min-height: 148px;
+  }
+
+  .lead-form {
+    gap: 12px;
+    padding: 22px;
+  }
+
+  .lead-form textarea {
+    min-height: 88px;
+  }
+
+  #deck-controls {
+    padding-top: 14px;
+    padding-bottom: 14px;
+  }
+}
+#nav-toggle.is-active span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+#nav-toggle.is-active span:nth-child(2) {
+  opacity: 0;
+}
+
+#nav-toggle.is-active span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+/* Imagen premium para bloques de servicios */
+.service-visual.service-image {
+  position: relative;
+  overflow: hidden;
+  border-radius: 22px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--line);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.32);
+}
+
+/* Imagen principal */
+.service-visual.service-image img {
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  object-position: center;
+  position: relative;
+  z-index: 1;
+  filter: saturate(0.9) contrast(1.05) brightness(0.85);
+  transition: transform 0.7s var(--ease-soft), filter 0.7s var(--ease-soft);
+}
+
+/* Capa oscura elegante encima de la imagen */
+.service-visual.service-image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(5, 9, 17, 0.28),
+      rgba(5, 9, 17, 0.62)
+    ),
+    radial-gradient(
+      circle at 28% 22%,
+      rgba(227, 43, 32, 0.22),
+      transparent 42%
+    );
+}
+
+/* Efecto premium al pasar el cursor */
+.service-block:hover .service-visual.service-image img {
+  transform: scale(1.06);
+  filter: saturate(1.08) contrast(1.08) brightness(0.95);
+}
+
+/* Línea/brillo sutil al hover */
+.service-visual.service-image::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      120deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.12) 42%,
+      transparent 58%
+    );
+  transform: translateX(-120%);
+  transition: transform 0.8s var(--ease-soft);
+}
+
+.service-block:hover .service-visual.service-image::before {
+  transform: translateX(120%);
+}
+
+/* =========================================================
+   RESPONSIVE FIX — PANEL CERTIFICACIONES IMPOEX
+   Mantiene estética premium en cualquier pantalla
+   ========================================================= */
+
+.panel-certifications,
+.panel-certifications * {
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.panel-certifications {
+  overflow: hidden;
+}
+
+/* Desktop normal */
+@media (min-width: 1081px) {
+  .panel-certifications {
+    padding:
+      clamp(94px, 11vh, 126px)
+      clamp(24px, 4vw, 76px)
+      clamp(92px, 10vh, 118px) !important;
+  }
+
+  .certifications-grid {
+    width: 100%;
+    max-width: 1680px;
+    margin: 0 auto;
+    grid-template-columns: minmax(360px, 0.88fr) minmax(620px, 1.12fr);
+    gap: clamp(28px, 4vw, 72px);
+    align-items: center;
+  }
+
+  .certifications-copy h2 {
+    font-size: clamp(2.35rem, 4.2vw, 5rem);
+    line-height: 0.96;
+  }
+
+  .certifications-copy .lede,
+  .cert-highlight-item p {
+    font-size: clamp(0.92rem, 1vw, 1.06rem);
+  }
+
+  .certifications-stage {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(16px, 1.7vw, 26px);
+  }
+
+  .cert-card {
+    padding: clamp(20px, 1.8vw, 28px);
+    min-height: auto;
+  }
+
+  .cert-logo-wrap {
+    min-height: clamp(140px, 20vh, 190px);
+  }
+
+  .basc-certificate-image {
+    height: clamp(190px, 28vh, 260px);
+  }
+}
+
+/* Laptops más pequeñas */
+@media (min-width: 1081px) and (max-width: 1450px) {
+  .certifications-grid {
+    grid-template-columns: minmax(330px, 0.82fr) minmax(590px, 1.18fr);
+    gap: 28px;
+  }
+
+  .certifications-copy h2 {
+    font-size: clamp(2.25rem, 3.8vw, 4.25rem);
+  }
+
+  .cert-mini-stats {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .cert-mini-stat {
+    padding: 14px 12px;
+  }
+
+  .cert-mini-stat strong {
+    font-size: 0.95rem;
+  }
+
+  .cert-mini-stat small {
+    font-size: 0.58rem;
+  }
+
+  .cert-card-head h3 {
+    font-size: clamp(1.08rem, 1.6vw, 1.55rem);
+  }
+
+  .cert-card-copy {
+    font-size: 0.88rem;
+    line-height: 1.48;
+  }
+
+  .basc-showcase {
+    grid-template-columns: 90px 1fr;
+    gap: 12px;
+  }
+
+  .basc-badge {
+    width: 90px;
+    height: 90px;
+  }
+
+  .cert-logo-basc {
+    width: 82px;
+  }
+}
+
+/* Pantallas bajitas */
+@media (min-width: 1081px) and (max-height: 790px) {
+  .panel-certifications {
+    align-items: flex-start !important;
+    padding-top: 92px !important;
+    padding-bottom: 84px !important;
+  }
+
+  .certifications-grid {
+    align-items: start;
+  }
+
+  .certifications-copy h2 {
+    font-size: clamp(2.1rem, 3.5vw, 3.8rem);
+    margin-bottom: 14px;
+  }
+
+  .certifications-copy .lede {
+    font-size: 0.9rem;
+    line-height: 1.46;
+    margin-bottom: 18px;
+  }
+
+  .cert-highlights {
+    margin-top: 18px;
+    gap: 9px;
+  }
+
+  .cert-highlight-item p {
+    font-size: 0.86rem;
+    line-height: 1.42;
+  }
+
+  .cert-mini-stats {
+    margin-top: 18px;
+  }
+
+  .cert-card {
+    padding: 18px;
+  }
+
+  .cert-logo-wrap {
+    min-height: 120px;
+    margin-bottom: 12px;
+  }
+
+  .cert-logo-pangea {
+    width: min(100%, 190px);
+  }
+
+  .basc-certificate-image {
+    height: 170px;
+  }
+
+  .cert-card-footer {
+    display: none;
+  }
+}
+
+/* Tablet: se apila limpio */
+@media (max-width: 1080px) {
+  .panel-certifications {
+    overflow: visible !important;
+    height: auto !important;
+    min-height: auto !important;
+    padding: 108px 22px 86px !important;
+  }
+
+  .certifications-grid {
+    grid-template-columns: 1fr !important;
+    gap: 36px !important;
+    max-width: 820px;
+    margin: 0 auto;
+  }
+
+  .certifications-copy h2 {
+    font-size: clamp(2.2rem, 8vw, 4.4rem);
+  }
+
+  .certifications-stage {
+    grid-template-columns: 1fr !important;
+    gap: 22px;
+  }
+
+  .cert-mini-stats {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .cert-card {
+    border-radius: 26px;
+  }
+
+  .basc-showcase {
+    grid-template-columns: 120px 1fr;
+  }
+
+  .basc-certificate-image {
+    height: 260px;
+  }
+}
+
+/* Celular */
+@media (max-width: 680px) {
+  .panel-certifications {
+    padding: 96px 18px 74px !important;
+  }
+
+  .certifications-copy h2 {
+    font-size: clamp(2rem, 11vw, 3.1rem);
+    line-height: 1;
+  }
+
+  .certifications-copy .lede {
+    font-size: 0.94rem;
+    line-height: 1.58;
+  }
+
+  .cert-highlights {
+    gap: 12px;
+  }
+
+  .cert-highlight-item {
+    gap: 10px;
+  }
+
+  .cert-mini-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .cert-card {
+    padding: 20px;
+    border-radius: 22px;
+  }
+
+  .cert-card-head h3 {
+    font-size: 1.3rem;
+  }
+
+  .cert-logo-wrap {
+    min-height: 145px;
+    border-radius: 20px;
+  }
+
+  .cert-logo-pangea {
+    width: min(100%, 220px);
+  }
+
+  .basc-showcase {
+    grid-template-columns: 1fr;
+  }
+
+  .basc-badge {
+    width: 100%;
+    max-width: 140px;
+    height: 100px;
+  }
+
+  .basc-certificate-frame {
+    border-radius: 20px;
+  }
+
+  .basc-certificate-image {
+    height: 220px;
+    border-radius: 14px;
+  }
+
+  .cert-card-footer {
+    gap: 8px;
+  }
+
+  .cert-card-footer span {
+    font-size: 0.56rem;
+  }
+}
+
+/* Celulares muy pequeños */
+@media (max-width: 380px) {
+  .certifications-copy h2 {
+    font-size: clamp(1.75rem, 10vw, 2.55rem);
+  }
+
+  .cert-card {
+    padding: 16px;
+  }
+
+  .basc-certificate-image {
+    height: 180px;
+  }
+}

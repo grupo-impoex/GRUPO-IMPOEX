@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contacto — Grupo Impoex</title>
+<meta name="description" content="Hablemos de tu próxima carga. Contáctanos para una propuesta logística concreta en menos de 24 horas.">
+<!-- Favicons -->
+<link rel="icon" href="https://www.impoex.ec/wp-content/uploads/2026/07/FAVICON-IMPOEX.png" sizes="any">
+<link rel="icon" type="image/png" href="https://www.impoex.ec/wp-content/uploads/2026/07/FAVICON-IMPOEX.png">
+<link rel="apple-touch-icon" href="https://www.impoex.ec/wp-content/uploads/2026/07/FAVICON-IMPOEX.png">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/nav.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/responsive.css">
+<style>
+  .contact-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 70px;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 clamp(24px, 6vw, 90px) 110px;
+  }
+
+  .contact-info-item {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    padding: 22px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .contact-info-item:first-child { padding-top: 0; }
+  .contact-info-item svg { width: 20px; height: 20px; stroke: var(--red); flex-shrink: 0; margin-top: 2px; }
+  .contact-info-item .label { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-tertiary); margin-bottom: 5px; }
+  .contact-info-item .value { font-size: 1rem; color: var(--text-primary); }
+
+  form.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .field { display: flex; flex-direction: column; gap: 8px; }
+  .field label {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+  }
+  .field input, .field select, .field textarea {
+    background: var(--bg-elevated);
+    border: 1px solid var(--line);
+    color: var(--text-primary);
+    padding: 14px 16px;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    border-radius: 2px;
+    transition: border-color 0.2s;
+  }
+  .field input:focus, .field select:focus, .field textarea:focus {
+    border-color: var(--red);
+    outline: none;
+  }
+  .field textarea { resize: vertical; min-height: 120px; }
+
+  .submit-row { display: flex; align-items: center; gap: 18px; margin-top: 6px; }
+  .form-note { font-size: 0.8rem; color: var(--text-tertiary); }
+
+  @media (max-width: 880px) {
+    .contact-layout { grid-template-columns: 1fr; gap: 50px; }
+    .form-row { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header id="site-header" class="is-visible">
+  <a href="index.html" class="logo-mark">
+    <svg viewBox="0 0 600 650" xmlns="http://www.w3.org/2000/svg">
+      <g transform="translate(-100, -200)">
+        <path fill="#e32b20" d="M318.84,661.05c78.35,51.93,162.88,61.62,252.53,38.71,12.19-3.12,29.18-16.09,35.72,6.08,6.15,20.86-13.51,22.06-25.99,26.41-70.54,24.58-141.8,26.4-213.87,6.59-14.65-4.03-29.29-10.46-45.23-7.63-33.13-22.37-66.26-44.73-99.39-67.1-52.17-53.55-91.31-113.96-104.56-190.02C82.47,269.9,246.36,107.84,417.09,124.28c47.39,4.57,34.97-30.15,47.61-55.24,28.74,42.97,56.15,84.46,84.21,125.51,7.12,10.41-.2,13.75-6.4,18-39.16,26.85-78.4,53.56-119.2,81.4-1.23-5.95-2.72-9.02-2.31-11.8q9.13-60.83-50.7-57.61c-93.96,5.05-178.13,91.73-182.7,189.64-2.87,61.42,4.65,120.34,49.82,167.4,15.81,38.41,48.25,59.32,81.43,79.47Z"/>
+        <path fill="#fff" d="M318.84,661.05c-33.18-20.14-65.62-41.06-81.43-79.47,34.9-119.12,158.2-219.59,292.05-207.59,90.01,8.07,158.06,52.49,203.41,131.63,25.87,45.14,25.33,45.46,73.81,45.46-29.01,41.46-57.21,81.34-84.88,121.6-6.62,9.63-11.59,9.66-20.87,2.82-38.2-28.14-77.1-55.32-115.5-82.67,2.28-4.24,2.84-7.15,4.35-7.79,11.8-5.02,30.57,4.83,35.94-8.9,6.26-16.02-9.35-28.48-19.06-40.08-51.39-61.4-143.72-66.27-211.89-11.38-43.44,34.98-69.49,80.13-75.93,136.37Z"/>
+        <path fill="#fff" d="M222.6,664.11c33.13,22.37,66.26,44.73,99.39,67.1,34.78,136.29,149.48,213.16,269.82,208.41,173.29-6.84,312.35-152.82,328.35-320.92,3.2-33.67,1.53-67.32-1.27-100.92-1.15-13.78-3.1-30.45,13.89-32.73,17.59-2.37,23.54,14.33,26.17,28.93,20.88,115.62.96,224.06-66.81,319.28-88.88,124.86-208.94,189.67-364.37,175.87-142.06-12.61-276.59-139.01-299.38-281.77-3.32-20.83-10.4-41.57-5.79-63.24Z"/>
+      </g>
+    </svg>
+    <span class="logo-text">GRUPO IMPOEX<span>Comercio Exterior</span></span>
+  </a>
+  <nav id="site-nav-links" class="site-nav">
+    <a href="index.html">Inicio</a>
+    <a href="nosotros.html">Nosotros</a>
+    <a href="servicios.html">Servicios</a>
+    <a href="contacto.html" class="active">Contacto</a>
+  </nav>
+  <a href="contacto.html" id="nav-cta">Solicitar cotización</a>
+  <button id="nav-toggle" aria-label="Abrir menú"><span></span><span></span><span></span></button>
+</header>
+
+<div id="mobile-nav">
+  <a href="index.html">Inicio</a>
+  <a href="nosotros.html">Nosotros</a>
+  <a href="servicios.html">Servicios</a>
+  <a href="contacto.html">Contacto</a>
+  <a href="contacto.html" class="btn-primary" style="margin-top:8px;">Solicitar cotización</a>
+  <span class="mono-stat">+593 99 978 4863</span>
+</div>
+
+<main>
+  <section class="page-hero" style="padding-bottom: 60px;">
+    <div class="page-hero-inner">
+      <span class="eyebrow">Contacto</span>
+      <h1 class="display-xl" style="font-size:clamp(2.4rem, 5vw, 4.2rem); margin:20px 0 26px;">
+        Hablemos de tu<br>próxima carga
+      </h1>
+      <p style="font-size:1.1rem; color:var(--text-secondary); max-width:620px; line-height:1.65;">
+        Cuéntanos qué necesitas mover y te respondemos con una propuesta concreta en menos de 24 horas.
+      </p>
+    </div>
+  </section>
+
+  <div class="contact-layout">
+    <div>
+      <div class="contact-info-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <div><div class="label">Teléfono</div><div class="value">+593 99 839 8221</div></div>
+      </div>
+      <div class="contact-info-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg>
+        <div><div class="label">Correo</div><div class="value">info@grupoimpoex.com</div></div>
+      </div>
+      <div class="contact-info-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <div><div class="label">Oficina</div><div class="value">Catalina Aldaz N34-168 y Portugal<br>(Edif. La Recoleta Piso 9 Of. 96)</div></div>
+      </div>
+      <div class="contact-info-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        <div><div class="label">Horario de atención</div><div class="value">Lunes a viernes, 8:00 – 17:00</div></div>
+      </div>
+    </div>
+
+    <form class="contact-form" onsubmit="event.preventDefault(); this.querySelector('.submit-row button').textContent='Enviado ✓';">
+      <div class="form-row">
+        <div class="field">
+          <label for="nombre">Nombre</label>
+          <input type="text" id="nombre" name="nombre" required>
+        </div>
+        <div class="field">
+          <label for="empresa">Empresa</label>
+          <input type="text" id="empresa" name="empresa">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="field">
+          <label for="correo">Correo electrónico</label>
+          <input type="email" id="correo" name="correo" required>
+        </div>
+        <div class="field">
+          <label for="telefono">Teléfono</label>
+          <input type="tel" id="telefono" name="telefono">
+        </div>
+      </div>
+      <div class="field">
+        <label for="servicio">Servicio de interés</label>
+        <select id="servicio" name="servicio">
+          <option>Transporte internacional</option>
+          <option>Agenciamiento de aduanas</option>
+          <option>Transporte de carga nacional</option>
+          <option>Almacenamiento y distribución</option>
+          <option>Consultoría en comercio exterior</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="mensaje">Mensaje</label>
+        <textarea id="mensaje" name="mensaje" placeholder="Cuéntanos qué necesitas mover, desde dónde y hacia dónde."></textarea>
+      </div>
+      <div class="submit-row">
+        <button type="submit" class="btn-primary">Enviar mensaje</button>
+        <span class="form-note">Respondemos en menos de 24 horas hábiles.</span>
+      </div>
+    </form>
+  </div>
+</main>
+
+
+<script src="js/nav.js"></script>
+</body>
+</html>

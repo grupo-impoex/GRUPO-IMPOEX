@@ -1,0 +1,6 @@
+projectKey=IMPOEX-INTERNACIONAL
+serverUrl=http://localhost:9000
+serverVersion=26.6.0.123539
+dashboardUrl=http://localhost:9000/dashboard?id=IMPOEX-INTERNACIONAL
+ceTaskId=ea552830-50f4-4d4c-a767-256b12657daf
+ceTaskUrl=http://localhost:9000/api/ce/task?id=ea552830-50f4-4d4c-a767-256b12657daf

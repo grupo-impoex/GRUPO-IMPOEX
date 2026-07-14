@@ -1,0 +1,368 @@
+/* =========================================================
+   Componentes compartidos
+   ========================================================= */
+
+.btn-primary,
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 48px;
+  padding: 14px 24px;
+  border-radius: 12px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition: transform 0.28s var(--ease-soft), border-color 0.28s var(--ease-soft), background 0.28s var(--ease-soft), box-shadow 0.28s var(--ease-soft);
+}
+
+.btn-primary {
+  color: #fff;
+  background: linear-gradient(135deg, var(--red), #b91e16);
+  box-shadow: 0 16px 38px rgba(227,43,32,0.24), inset 0 1px 0 rgba(255,255,255,0.18);
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 22px 54px rgba(227,43,32,0.34), inset 0 1px 0 rgba(255,255,255,0.22);
+}
+
+.btn-ghost {
+  color: var(--text-primary);
+  border: 1px solid var(--line-strong);
+  background: rgba(255,255,255,0.035);
+  backdrop-filter: blur(16px);
+}
+.btn-ghost:hover {
+  border-color: rgba(255,255,255,0.48);
+  background: rgba(255,255,255,0.07);
+  transform: translateY(-2px);
+}
+
+.network-map {
+  width: min(42vw, 560px);
+  height: auto;
+  filter: drop-shadow(0 38px 80px rgba(0,0,0,0.35));
+}
+.network-map .route {
+  fill: none;
+  stroke: var(--red-hot);
+  stroke-width: 1.7;
+  stroke-dasharray: 8 9;
+  opacity: 0.72;
+  animation: dash-flow 3.2s linear infinite;
+}
+.network-map .node { fill: var(--text-primary); filter: drop-shadow(0 0 8px rgba(255,255,255,0.7)); }
+.network-map .node-origin { fill: var(--red); filter: drop-shadow(0 0 16px var(--red-glow)); }
+.network-map .node-pulse {
+  fill: none;
+  stroke: var(--red-hot);
+  stroke-width: 2;
+  opacity: 0;
+  transform-origin: center;
+  animation: pulse-ring 2.4s ease-out infinite;
+}
+.network-map .land { fill: none; stroke: rgba(168, 198, 238, 0.22); stroke-width: 0.8; }
+
+@keyframes dash-flow { to { stroke-dashoffset: -140; } }
+@keyframes pulse-ring {
+  0% { opacity: 0.72; transform: scale(0.4); }
+  100% { opacity: 0; transform: scale(2.8); }
+}
+
+/* =========================================================
+   FOOTER LIMPIO IMPOEX
+   Compacto, funcional y sin boxes
+   ========================================================= */
+
+#site-footer.impoex-clean-footer,
+.impoex-clean-footer {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  padding: clamp(46px, 5vw, 72px) clamp(18px, 5vw, 82px) 24px;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(5, 9, 17, 0.96),
+      rgba(5, 9, 17, 0.78),
+      rgba(5, 9, 17, 0.96)
+    ),
+    var(--footer-bg-image) center / cover no-repeat;
+  border-top: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+.footer-clean-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 18% 20%, rgba(227, 43, 32, 0.16), transparent 30%),
+    radial-gradient(circle at 82% 18%, rgba(50, 96, 170, 0.14), transparent 34%),
+    linear-gradient(rgba(255,255,255,0.022) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.022) 1px, transparent 1px);
+  background-size: auto, auto, 54px 54px, 54px 54px;
+  opacity: 0.88;
+}
+
+.footer-clean-shell {
+  width: min(100%, 1540px);
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.footer-clean-main {
+  display: grid;
+  grid-template-columns: minmax(270px, 0.95fr) minmax(220px, 0.62fr) minmax(360px, 1fr);
+  gap: clamp(28px, 4vw, 70px);
+  align-items: center;
+}
+
+/* IZQUIERDA CTA */
+.footer-clean-cta span,
+.footer-clean-links h4,
+.footer-clean-brand span {
+  display: inline-flex;
+  color: #ffaaa5;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+  line-height: 1.15;
+  text-transform: uppercase;
+}
+
+.footer-clean-cta h3 {
+  margin: 12px 0 12px;
+  max-width: 420px;
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  font-size: clamp(1.65rem, 2.6vw, 3.1rem);
+  line-height: 0.95;
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+}
+
+.footer-clean-cta p {
+  max-width: 430px;
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.footer-clean-button {
+  width: fit-content;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 20px;
+  padding: 13px 18px;
+  border-radius: 999px;
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: rgba(227, 43, 32, 0.18);
+  border: 1px solid rgba(227, 43, 32, 0.45);
+  box-shadow: 0 18px 44px rgba(227, 43, 32, 0.14);
+  transition:
+    transform 0.3s var(--ease-soft),
+    background 0.3s var(--ease-soft),
+    gap 0.3s var(--ease-soft);
+}
+
+.footer-clean-button:hover {
+  transform: translateY(-3px);
+  gap: 18px;
+  background: rgba(227, 43, 32, 0.32);
+}
+
+/* CENTRO LOGO */
+.footer-clean-brand {
+  text-align: center;
+  justify-self: center;
+}
+
+.footer-clean-logo {
+  position: relative;
+  width: 124px;
+  height: 124px;
+  display: grid;
+  place-items: center;
+  margin: 0 auto 16px;
+}
+
+.footer-clean-logo svg {
+  position: relative;
+  z-index: 2;
+  width: 70px;
+  height: 82px;
+  filter:
+    drop-shadow(0 0 24px rgba(227, 43, 32, 0.18))
+    drop-shadow(0 18px 34px rgba(0,0,0,0.36));
+  animation: footerLogoFloat 4.2s ease-in-out infinite;
+}
+
+.footer-orbit {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.10);
+  pointer-events: none;
+}
+
+.footer-orbit-one {
+  border-top-color: rgba(227,43,32,0.9);
+  border-right-color: rgba(227,43,32,0.34);
+  animation: footerOrbitSpin 8s linear infinite;
+}
+
+.footer-orbit-two {
+  inset: 16px;
+  border-left-color: rgba(143,231,255,0.42);
+  animation: footerOrbitSpin 6s linear infinite reverse;
+}
+
+.footer-clean-brand strong {
+  display: block;
+  margin-top: 4px;
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 2.7vw, 3rem);
+  line-height: 0.9;
+  letter-spacing: -0.055em;
+}
+
+.footer-clean-brand small {
+  display: block;
+  margin-top: 6px;
+  color: var(--text-tertiary);
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+@keyframes footerOrbitSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes footerLogoFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-7px);
+  }
+}
+
+/* DERECHA LINKS */
+.footer-clean-links {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(24px, 3vw, 50px);
+  justify-self: end;
+  width: 100%;
+  max-width: 620px;
+}
+
+.footer-clean-links h4 {
+  margin: 0 0 14px;
+}
+
+.footer-clean-links a,
+.footer-clean-links p {
+  display: block;
+  margin: 0 0 10px;
+  color: var(--text-secondary);
+  font-size: 0.92rem;
+  line-height: 1.42;
+  text-decoration: none;
+  transition:
+    color 0.28s var(--ease-soft),
+    transform 0.28s var(--ease-soft);
+}
+
+.footer-clean-links a:hover {
+  color: #fff;
+  transform: translateX(4px);
+}
+
+/* BOTTOM */
+.footer-clean-bottom {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: clamp(34px, 4vw, 50px);
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.10);
+  color: var(--text-tertiary);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1080px) {
+  .footer-clean-main {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .footer-clean-cta p {
+    margin: 0 auto;
+  }
+
+  .footer-clean-button {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .footer-clean-brand {
+    order: -1;
+  }
+
+  .footer-clean-links {
+    justify-self: center;
+    text-align: center;
+  }
+}
+
+@media (max-width: 680px) {
+  #site-footer.impoex-clean-footer,
+  .impoex-clean-footer {
+    padding: 56px 18px 24px;
+  }
+
+  .footer-clean-links {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .footer-clean-logo {
+    width: 108px;
+    height: 108px;
+  }
+
+  .footer-clean-logo svg {
+    width: 62px;
+    height: 74px;
+  }
+
+  .footer-clean-bottom {
+    display: grid;
+    justify-content: center;
+    text-align: center;
+  }
+}

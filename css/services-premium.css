@@ -1,0 +1,714 @@
+/* =========================================================
+   SERVICIOS — Contenedores con puertas separadas responsive
+   Cargar este archivo DESPUÉS de site-final.css.
+   No cargar services-premium.css, container-real.css ni fixes antiguos.
+   ========================================================= */
+
+.services-container-page,
+.services-container-page * {
+  box-sizing: border-box;
+  min-width: 0;
+}
+
+/* HERO */
+.services-container-hero {
+  position: relative;
+  min-height: 78svh;
+  display: grid;
+  align-items: center;
+  padding: clamp(130px, 17vh, 190px) clamp(20px, 5vw, 76px) clamp(70px, 10vh, 120px);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.services-hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -3;
+  background:
+    linear-gradient(90deg, rgba(5, 9, 17, 0.96), rgba(5, 9, 17, 0.58), rgba(5, 9, 17, 0.88)),
+    radial-gradient(circle at 18% 72%, rgba(227,43,32,0.16), transparent 34%),
+    var(--services-hero-image) center / cover no-repeat;
+  filter: saturate(0.92) contrast(1.08);
+}
+
+.services-container-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size: 52px 52px;
+  mask-image: radial-gradient(circle at center, black, transparent 78%);
+}
+
+.services-hero-inner {
+  width: min(100%, 1380px);
+  margin: 0 auto;
+}
+
+.services-hero-inner h1 {
+  max-width: 1050px;
+  margin: 18px 0 24px;
+  font-family: var(--font-display);
+  font-size: clamp(2.7rem, 6.5vw, 7.2rem);
+  line-height: 0.94;
+  letter-spacing: -0.06em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+}
+
+.services-hero-inner h1 em {
+  font-style: normal;
+  color: var(--red);
+  text-shadow: 0 0 34px rgba(227,43,32,0.28);
+}
+
+.services-hero-inner p {
+  max-width: 760px;
+  color: var(--text-secondary);
+  font-size: clamp(1rem, 1.2vw, 1.18rem);
+  line-height: 1.72;
+}
+
+.services-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 32px;
+}
+
+/* SECCIÓN CONTENEDORES */
+.container-flow-section {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  padding: clamp(88px, 10vw, 140px) clamp(20px, 5vw, 76px);
+  background:
+    radial-gradient(circle at 18% 12%, rgba(227,43,32,0.12), transparent 32%),
+    radial-gradient(circle at 84% 18%, rgba(42,104,205,0.14), transparent 34%),
+    linear-gradient(135deg, #060914 0%, #0a0f1c 44%, #07101e 100%);
+  border-top: 1px solid rgba(255,255,255,0.08);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.container-flow-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.024) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.024) 1px, transparent 1px);
+  background-size: 52px 52px;
+  mask-image: radial-gradient(circle at center, black, transparent 78%);
+  opacity: .78;
+}
+
+.container-flow-section::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(5,9,17,.92), rgba(5,9,17,.42), rgba(5,9,17,.9)),
+    radial-gradient(circle at 50% 48%, rgba(227,43,32,.12), transparent 42%);
+}
+
+.container-flow-header {
+  width: min(100%, 1180px);
+  margin: 0 auto clamp(68px, 7vw, 110px);
+  text-align: center;
+}
+
+.container-flow-header h2 {
+  margin: 18px 0 20px;
+  font-family: var(--font-display);
+  font-size: clamp(2.1rem, 4.4vw, 5rem);
+  line-height: 0.98;
+  letter-spacing: -0.055em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+}
+
+.container-flow-header h2 em {
+  font-style: normal;
+  color: var(--red);
+  text-shadow: 0 0 34px rgba(227,43,32,0.26);
+}
+
+.container-flow-header p {
+  max-width: 760px;
+  margin: 0 auto;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+
+.container-flow-grid {
+  position: relative;
+  width: min(100%, 1420px);
+  margin: 0 auto;
+  display: grid;
+  gap: clamp(84px, 10vw, 150px);
+}
+
+.container-flow-grid::before {
+  content: '';
+  position: absolute;
+  top: 90px;
+  bottom: 90px;
+  left: 50%;
+  width: 1px;
+  transform: translateX(-50%);
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(227,43,32,.46) 0 8px,
+    transparent 8px 20px
+  );
+  filter: drop-shadow(0 0 12px rgba(227,43,32,.28));
+  opacity: .42;
+  pointer-events: none;
+}
+
+.container-flow-item {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(420px, 580px) minmax(340px, 1fr);
+  gap: clamp(34px, 6vw, 92px);
+  align-items: center;
+  overflow: visible;
+  isolation: isolate;
+}
+
+.container-flow-item::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: clamp(90px, 10vw, 160px);
+  height: 1px;
+  transform: translate(-50%, -50%);
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(227,43,32,.58) 0 7px,
+    transparent 7px 18px
+  );
+  filter: drop-shadow(0 0 10px rgba(227,43,32,.25));
+  opacity: .52;
+  z-index: -1;
+}
+
+.container-flow-item.is-reverse {
+  grid-template-columns: minmax(340px, 1fr) minmax(420px, 580px);
+}
+
+.container-flow-item.is-reverse .container-visual-wrap {
+  order: 2;
+  transform: translateY(44px);
+}
+
+.container-flow-item.is-reverse .container-service-copy {
+  order: 1;
+}
+
+.container-flow-item:not(.is-reverse) .container-visual-wrap {
+  transform: translateY(-18px);
+}
+
+.container-visual-wrap {
+  position: relative;
+  transition: transform .55s var(--ease-soft);
+}
+
+/* =========================================================
+   CONTENEDOR REAL — estructura estable con puertas separadas
+   ========================================================= */
+.container-visual-real {
+  /* =====================================================
+     AJUSTES MANUALES PRINCIPALES
+     --stage-width: tamaño general del contenedor.
+     --photo-width / --photo-height: tamaño de la imagen interna.
+     --door-open-angle: apertura de las puertas.
+     ===================================================== */
+
+  --stage-width: min(82vw, 520px);
+  --stage-ratio: .954; /* proporción del contenedor completo */
+
+  --photo-width: calc(var(--stage-width) * .62);
+  --photo-height: calc(var(--stage-width) * .68);
+  --photo-x: 50%;
+  --photo-y: 50%;
+
+  /* Puertas del mismo tamaño que el contenedor */
+  --door-width: calc(var(--stage-width) * .50);
+  --door-height: calc(var(--stage-width) * var(--stage-ratio));
+
+  /* Apertura tipo puerta real, sin despegarse del marco */
+  --door-open-angle: 78deg;
+
+  position: relative;
+  width: 100%;
+  min-height: clamp(360px, 29vw, 460px);
+  perspective: 1600px;
+  transform-style: preserve-3d;
+  border-radius: 34px;
+  overflow: visible;
+  background:
+    radial-gradient(circle at 50% 42%, rgba(59,130,246,0.18), transparent 42%),
+    radial-gradient(circle at 50% 84%, rgba(227,43,32,0.10), transparent 38%),
+    linear-gradient(145deg, rgba(18,30,52,.86), rgba(8,14,26,.68));
+  border: 1px solid rgba(255,255,255,0.12);
+  box-shadow:
+    0 34px 100px rgba(0,0,0,.34),
+    inset 0 1px 0 rgba(255,255,255,.06);
+  isolation: isolate;
+}
+
+/* Marco interno decorativo */
+.container-visual-real::before {
+  content: '';
+  position: absolute;
+  inset: 7%;
+  z-index: 0;
+  border-radius: 28px;
+  border: 1px solid rgba(255,255,255,.09);
+  background: rgba(255,255,255,.018);
+  pointer-events: none;
+}
+
+.container-back-layer,
+.container-front-layer,
+.container-photo-layer,
+.container-door-layer {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+  pointer-events: none;
+}
+
+/* Contenedor abierto / parte trasera */
+.container-back-layer {
+  z-index: 1;
+  width: var(--stage-width);
+  height: calc(var(--stage-width) * var(--stage-ratio));
+  transform: translate(-50%, -50%) scale(.985);
+  background-image: var(--container-back);
+  background-size: 100% 100%;
+  opacity: .98;
+  filter:
+    saturate(1.08)
+    contrast(1.04)
+    drop-shadow(0 24px 30px rgba(0,0,0,.36));
+  transition:
+    transform .65s var(--ease-soft),
+    filter .65s var(--ease-soft);
+}
+
+/* Imagen del servicio, fija detrás de las puertas */
+.container-photo-layer {
+  z-index: 2;
+  width: var(--photo-width);
+  height: var(--photo-height);
+  transform: translate(-50%, -50%);
+  border-radius: 12px;
+  overflow: hidden;
+  left: var(--photo-x);
+  top: var(--photo-y);
+  background:
+    linear-gradient(180deg, rgba(5,9,17,.03), rgba(5,9,17,.16)),
+    var(--service-image) var(--service-position, center) / cover no-repeat !important;
+  border: 1px solid rgba(255,255,255,.10);
+  box-shadow:
+    0 16px 38px rgba(0,0,0,.30),
+    inset 0 1px 0 rgba(255,255,255,.08);
+  opacity: 1;
+  transition: filter .45s var(--ease-soft);
+}
+
+.container-photo-layer::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 25% 20%, rgba(227,43,32,.10), transparent 34%),
+    linear-gradient(180deg, transparent, rgba(5,9,17,.14));
+}
+
+/* Frente completo para el estado cerrado.
+   Al hacer hover/click se desvanece y aparecen las puertas separadas. */
+.container-visual-real::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 5;
+  width: var(--stage-width);
+  height: calc(var(--stage-width) * var(--stage-ratio));
+  transform: translate(-50%, -50%) scale(.985);
+  background-image: var(--container-front);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+  filter:
+    saturate(1.08)
+    contrast(1.04)
+    drop-shadow(0 20px 28px rgba(0,0,0,.32));
+  opacity: 1;
+  transition:
+    opacity .22s var(--ease-soft),
+    transform .65s var(--ease-soft);
+  pointer-events: none;
+}
+
+/* Puertas separadas.
+   Cada puerta ocupa exactamente media cara del contenedor. */
+.container-door-layer {
+  z-index: 6;
+  width: var(--door-width);
+  height: var(--door-height);
+  background-size: 100% 100%;
+  opacity: 0;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  will-change: transform, opacity;
+  filter:
+    saturate(1.1)
+    contrast(1.04)
+    drop-shadow(0 20px 24px rgba(0,0,0,.34));
+  transition:
+    transform .95s cubic-bezier(.22,1,.36,1),
+    opacity .20s var(--ease-soft),
+    filter .55s var(--ease-soft);
+}
+
+/* Puerta izquierda: cerrada desde el centro hacia la izquierda,
+   con bisagra en el borde exterior izquierdo. */
+.container-door-left {
+  background-image: var(--container-door-left);
+  transform-origin: left center;
+  transform: translate(-100%, -50%) rotateY(0deg);
+}
+
+/* Puerta derecha: cerrada desde el centro hacia la derecha,
+   con bisagra en el borde exterior derecho. */
+.container-door-right {
+  background-image: var(--container-door-right);
+  transform-origin: right center;
+  transform: translate(0%, -50%) rotateY(0deg);
+}
+
+.container-service-number {
+  position: absolute;
+  left: 9.5%;
+  bottom: 8.5%;
+  z-index: 8;
+  width: 50px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  border-radius: 17px;
+  background: rgba(5,9,17,.88);
+  border: 1px solid rgba(255,255,255,.14);
+  color: var(--red);
+  font-family: var(--font-mono);
+  font-size: .78rem;
+  letter-spacing: .1em;
+  box-shadow:
+    0 14px 32px rgba(0,0,0,.32),
+    inset 0 1px 0 rgba(255,255,255,.06);
+}
+
+/* Estado abierto */
+.container-flow-item:hover .container-visual-real::after,
+.container-flow-item.is-open .container-visual-real::after,
+.container-flow-item:focus-within .container-visual-real::after {
+  opacity: 0;
+}
+
+.container-flow-item:hover .container-back-layer,
+.container-flow-item.is-open .container-back-layer,
+.container-flow-item:focus-within .container-back-layer {
+  transform: translate(-50%, -50%) scale(1.005);
+  filter:
+    saturate(1.15)
+    contrast(1.07)
+    drop-shadow(0 28px 34px rgba(0,0,0,.42))
+    drop-shadow(0 0 22px rgba(59,130,246,.18));
+}
+
+.container-flow-item:hover .container-photo-layer,
+.container-flow-item.is-open .container-photo-layer,
+.container-flow-item:focus-within .container-photo-layer {
+  filter: saturate(1.06) contrast(1.04);
+}
+
+/* Apertura real hacia afuera.
+   No usa translateX, por eso la puerta queda pegada a su bisagra. */
+.container-flow-item:hover .container-door-left,
+.container-flow-item.is-open .container-door-left,
+.container-flow-item:focus-within .container-door-left {
+  opacity: 1;
+  transform:
+    translate(-100%, -50%)
+    rotateY(calc(var(--door-open-angle) * -1));
+  filter:
+    saturate(1.14)
+    contrast(1.06)
+    drop-shadow(-18px 24px 28px rgba(0,0,0,.42));
+}
+
+.container-flow-item:hover .container-door-right,
+.container-flow-item.is-open .container-door-right,
+.container-flow-item:focus-within .container-door-right {
+  opacity: 1;
+  transform:
+    translate(0%, -50%)
+    rotateY(var(--door-open-angle));
+  filter:
+    saturate(1.14)
+    contrast(1.06)
+    drop-shadow(18px 24px 28px rgba(0,0,0,.42));
+}
+
+/* Texto lateral */
+.container-service-copy {
+  position: relative;
+  z-index: 2;
+  max-width: 650px;
+  padding: clamp(18px, 2vw, 30px);
+}
+
+.container-service-copy span {
+  display: inline-flex;
+  margin-bottom: 16px;
+  color: var(--red);
+  font-family: var(--font-mono);
+  font-size: .72rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+
+.container-service-copy h3 {
+  margin: 0 0 18px;
+  font-family: var(--font-display);
+  font-size: clamp(1.85rem, 3.4vw, 4.25rem);
+  line-height: .98;
+  letter-spacing: -.055em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+}
+
+.container-service-copy p {
+  max-width: 640px;
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: clamp(1rem, 1.2vw, 1.18rem);
+  line-height: 1.72;
+}
+
+.container-service-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 28px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--red);
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  font-size: .72rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  transition: gap .28s var(--ease-soft), color .28s var(--ease-soft);
+}
+
+.container-service-cta:hover {
+  gap: 16px;
+  color: var(--red-hot);
+}
+
+/* CTA final */
+.services-final-cta {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(82px, 9vw, 128px) clamp(20px, 5vw, 76px);
+  text-align: center;
+  background:
+    radial-gradient(circle at 50% 10%, rgba(227,43,32,.16), transparent 34%),
+    linear-gradient(180deg, #080b14, #050810);
+}
+
+.services-final-cta h2 {
+  margin: 0 auto 28px;
+  max-width: 980px;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4.6vw, 5.2rem);
+  line-height: .98;
+  letter-spacing: -.055em;
+  text-transform: uppercase;
+}
+
+.services-final-cta h2 em {
+  font-style: normal;
+  color: var(--red);
+}
+
+/* RESPONSIVE */
+@media (max-width: 1180px) {
+  .container-flow-grid {
+    gap: 86px;
+  }
+
+  .container-flow-item,
+  .container-flow-item.is-reverse {
+    grid-template-columns: 1fr;
+    max-width: 780px;
+    margin: 0 auto;
+    gap: 26px;
+  }
+
+  .container-flow-item.is-reverse .container-visual-wrap,
+  .container-flow-item.is-reverse .container-service-copy,
+  .container-flow-item:not(.is-reverse) .container-visual-wrap {
+    order: initial;
+    transform: none;
+  }
+
+  .container-flow-item::before,
+  .container-flow-grid::before {
+    display: none;
+  }
+
+  .container-service-copy {
+    padding: 0 4px;
+  }
+
+  .container-visual-real {
+    --stage-width: min(86vw, 520px);
+  }
+}
+
+@media (max-width: 760px) {
+  .services-container-hero {
+    min-height: auto;
+    padding: 118px 18px 76px;
+  }
+
+  .services-hero-inner h1 {
+    font-size: clamp(2.3rem, 12vw, 4.1rem);
+  }
+
+  .services-hero-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .container-flow-section {
+    padding: 74px 18px;
+  }
+
+  .container-flow-header {
+    text-align: left;
+    margin-bottom: 48px;
+  }
+
+  .container-flow-header h2 {
+    font-size: clamp(2rem, 10.5vw, 3.2rem);
+  }
+
+  .container-visual-real {
+    min-height: 300px;
+    border-radius: 26px;
+    --stage-width: min(88vw, 430px);
+    --photo-width: calc(var(--stage-width) * .60);
+    --photo-height: calc(var(--stage-width) * .66);
+    --door-width: calc(var(--stage-width) * .50);
+    --door-height: calc(var(--stage-width) * var(--stage-ratio));
+    --door-open-angle: 72deg;
+  }
+
+  .container-photo-layer {
+    border-radius: 10px;
+  }
+
+  .container-service-copy h3 {
+    font-size: clamp(1.65rem, 9vw, 2.65rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .container-flow-section {
+    padding: 66px 16px;
+  }
+
+  .container-flow-grid {
+    gap: 64px;
+  }
+
+  .container-visual-real {
+    min-height: 248px;
+    border-radius: 22px;
+    --stage-width: min(88vw, 360px);
+    --photo-width: calc(var(--stage-width) * .58);
+    --photo-height: calc(var(--stage-width) * .64);
+    --door-width: calc(var(--stage-width) * .50);
+    --door-height: calc(var(--stage-width) * var(--stage-ratio));
+    --door-open-angle: 68deg;
+  }
+
+  .container-photo-layer {
+    border-radius: 8px;
+  }
+
+  .container-service-number {
+    width: 42px;
+    height: 42px;
+    border-radius: 14px;
+    font-size: .68rem;
+  }
+
+  .container-service-copy p {
+    font-size: .96rem;
+    line-height: 1.62;
+  }
+}
+
+
+/* =========================================================
+   SERVICIOS — Header alineado al index + fotos más visibles
+   ========================================================= */
+.services-container-page ~ #site-footer,
+.services-container-page {
+  max-width: 100%;
+}
+
+/* En esta página usamos el mismo lockup del index: impoex-navbar-brand */
+#site-header .impoex-navbar-brand {
+  text-decoration: none;
+}
+
+/* La foto del servicio ahora ocupa más área dentro del contenedor abierto. */
+.container-photo-layer {
+  background-size: cover !important;
+  background-position: var(--service-position, center) !important;
+}
+
+.container-flow-item:hover .container-photo-layer,
+.container-flow-item.is-open .container-photo-layer,
+.container-flow-item:focus-within .container-photo-layer {
+  transform: translate(-50%, -50%) scale(1.035);
+}
+
+@media (max-width: 760px) {
+  .container-flow-item:hover .container-photo-layer,
+  .container-flow-item.is-open .container-photo-layer,
+  .container-flow-item:focus-within .container-photo-layer {
+    transform: translate(-50%, -50%) scale(1.02);
+  }
+}

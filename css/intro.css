@@ -1,0 +1,139 @@
+/* =========================================================
+   INTRO — apertura de marca
+   ========================================================= */
+
+#intro {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100vh;
+  background:
+    radial-gradient(circle at center, rgba(26, 71, 145, 0.18), transparent 42%),
+    var(--bg-base);
+  z-index: 1000;
+  overflow: hidden;
+}
+#intro::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  background-image:
+    repeating-linear-gradient(0deg, transparent 0, transparent 39px, var(--line-soft) 39px, var(--line-soft) 40px),
+    repeating-linear-gradient(90deg, transparent 0, transparent 39px, var(--line-soft) 39px, var(--line-soft) 40px);
+  opacity: var(--radar-op, 0);
+  mask-image: radial-gradient(circle at center, black 0%, transparent 72%);
+  transition: opacity 1.2s ease;
+}
+#intro::after {
+  content: '';
+  position: absolute;
+  width: 90vmin;
+  height: 90vmin;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, transparent, rgba(227,43,32,0.18), transparent 34%);
+  opacity: var(--radar-op, 0);
+  animation: introSweep 4s linear infinite;
+  mask-image: radial-gradient(circle, transparent 0 38%, black 39% 40%, transparent 41% 100%);
+}
+@keyframes introSweep { to { transform: rotate(360deg); } }
+
+#logo-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-2vh);
+  position: relative;
+  z-index: 2;
+}
+#isotipo {
+  width: 58vmin;
+  max-width: 360px;
+  height: auto;
+  margin: 0 auto 4.2vh;
+  overflow: visible;
+  filter: drop-shadow(0 0 38px rgba(227,43,32,0.18));
+}
+#isotipo .st-red { fill: var(--red); }
+#isotipo .st-white { fill: var(--text-primary); }
+#coord-ring-pos {
+  position: absolute;
+  width: 76vmin;
+  max-width: 500px;
+  height: 76vmin;
+  max-height: 500px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, calc(-50% - 4.5vh - 38px));
+  pointer-events: none;
+}
+#coord-ring { width: 100%; height: 100%; opacity: 0; display: block; }
+#text-container { display: flex; flex-direction: column; align-items: center; text-align: center; }
+.brand-text {
+  font-family: var(--font-display);
+  color: var(--text-primary);
+  font-size: clamp(1.6rem, 4vw, 2.7rem);
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin: 0 0 1vh;
+  opacity: 0;
+  transform: translateY(3vh);
+}
+.holding-text {
+  font-family: var(--font-mono);
+  color: var(--text-tertiary);
+  font-size: clamp(0.68rem, 1.3vw, 0.85rem);
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin: 0;
+  opacity: 0;
+  transform: translateY(2vh);
+}
+.holding-text::before { content: '// '; color: var(--red-dim); }
+#intro-skip {
+  position: absolute;
+  bottom: 5vh;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  padding: 10px 16px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  opacity: 0;
+  color: var(--text-tertiary);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
+}
+#intro-skip:hover { color: var(--text-primary); border-color: var(--red); background: rgba(227,43,32,0.07); }
+#intro-certs {
+  position: absolute;
+  bottom: 12vh;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(2vh);
+}
+.cert-pill {
+  padding: 9px 14px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  filter: grayscale(1);
+}
+.cert-divider { width: 1px; height: 24px; background: var(--line); }
