@@ -1075,12 +1075,14 @@
         </div>
       </div>
 
-      <form class="lead-form contact-premium-form spotlight-card" onsubmit="event.preventDefault(); this.classList.add('is-sent'); this.querySelector('button').textContent='Solicitud recibida ✓';">
+      <form id="quoteForm" class="lead-form contact-premium-form spotlight-card" action="send-cotizacion.php" method="POST" novalidate>
         <div class="form-head">
           <span>Solicitud de cotización</span>
           <h3>Datos de la operación</h3>
           <p>Mientras más claro sea el requerimiento, más precisa será la propuesta.</p>
         </div>
+
+        <input class="form-hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
 
         <div class="form-row">
           <label>
@@ -1135,8 +1137,10 @@
         </label>
 
         <button type="submit" class="btn-primary magnetic">
-          Enviar solicitud <span>→</span>
+          <span class="button-label">Enviar solicitud</span> <span aria-hidden="true">→</span>
         </button>
+
+        <p class="form-status" role="status" aria-live="polite"></p>
 
         <p class="form-disclaimer">
           Tu requerimiento será revisado por el equipo comercial y operativo de Grupo IMPOEX.
@@ -1147,7 +1151,7 @@
   </div>
   <footer 
   id="site-footer" 
-  class="impoex-clean-footer"
+  class="impoex-clean-footer footer-contact-below"
   style="--footer-bg-image:url('https://www.impoex.ec/wp-content/uploads/2026/06/MUNDO-IMPOEX-1.png');"
 >
   <div class="footer-clean-overlay" aria-hidden="true"></div>
@@ -1245,6 +1249,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="js/animacion.js"></script>
+<script src="js/contact-form.js"></script>
+<script src="js/intro-cleanup.js"></script>
 
 </body>
 </html>
