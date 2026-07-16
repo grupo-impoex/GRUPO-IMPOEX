@@ -712,3 +712,68 @@
     transform: translate(-50%, -50%) scale(1.02);
   }
 }
+
+/* =========================================================
+   SERVICIOS — Imagen interna más amplia dentro del contenedor
+   ========================================================= */
+
+/* Aumenta el área visible de la foto dentro del contenedor */
+.container-visual-real {
+  --photo-width: calc(var(--stage-width) * .78);
+  --photo-height: calc(var(--stage-width) * .76);
+  --photo-x: 50%;
+  --photo-y: 50%;
+}
+
+/* Reduce el marco interior para que no se vea como un box tan marcado */
+.container-visual-real::before {
+  inset: 4.8%;
+  border-radius: 24px;
+  border-color: rgba(255,255,255,.045);
+  background: transparent;
+}
+
+/* Ajuste visual de la foto */
+.container-photo-layer {
+  border-radius: 18px !important;
+  border-color: rgba(255,255,255,.08) !important;
+  box-shadow:
+    0 22px 48px rgba(0,0,0,.34),
+    inset 0 1px 0 rgba(255,255,255,.08) !important;
+}
+
+/* Evita que en hover se agrande demasiado y choque con el contenedor */
+.container-flow-item:hover .container-photo-layer,
+.container-flow-item.is-open .container-photo-layer,
+.container-flow-item:focus-within .container-photo-layer {
+  transform: translate(-50%, -50%) scale(1.015);
+}
+
+/* Tablet / móvil */
+@media (max-width: 760px) {
+  .container-visual-real {
+    --photo-width: calc(var(--stage-width) * .76);
+    --photo-height: calc(var(--stage-width) * .74);
+  }
+
+  .container-visual-real::before {
+    inset: 5.2%;
+    border-radius: 20px;
+  }
+
+  .container-photo-layer {
+    border-radius: 14px !important;
+  }
+}
+
+/* Móvil pequeño */
+@media (max-width: 480px) {
+  .container-visual-real {
+    --photo-width: calc(var(--stage-width) * .74);
+    --photo-height: calc(var(--stage-width) * .72);
+  }
+
+  .container-photo-layer {
+    border-radius: 12px !important;
+  }
+}

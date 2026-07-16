@@ -209,7 +209,7 @@ body {
   line-height: 0.92;
   letter-spacing: -0.07em;
   font-weight: 900;
-  background: linear-gradient(90deg, #ffffff 0%, #ebf8ff 50%, #8fe7ff 100%);
+  background: linear-gradient(90deg, #ffffff 0%, #ebf8ff 50%, #006eff 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -229,7 +229,7 @@ body {
   margin-top: 22px;
   transform-origin: left center;
   transform: scaleX(0);
-  background: linear-gradient(90deg, var(--red), rgba(143, 231, 255, 0.75), transparent);
+  background: linear-gradient(90deg, var(--red), rgba(0, 119, 255, 0.75), transparent);
   box-shadow: 0 0 24px rgba(227,43,32,0.18);
 }
 
@@ -620,7 +620,7 @@ body.impoex-intro-skipped .impoex-intro {
   line-height: 0.92;
   letter-spacing: -0.07em;
   font-weight: 900;
-  background: linear-gradient(90deg, #ffffff 0%, #ebf8ff 50%, #8fe7ff 100%);
+  background: linear-gradient(90deg, #ffffff 0%, #ebf8ff 50%, #0084ff 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -640,7 +640,7 @@ body.impoex-intro-skipped .impoex-intro {
   margin-top: 22px;
   transform-origin: left center;
   transform: scaleX(0);
-  background: linear-gradient(90deg, var(--red), rgba(143, 231, 255, 0.75), transparent);
+  background: linear-gradient(90deg, var(--red), rgba(0, 47, 100, 0.75), transparent);
   box-shadow: 0 0 24px rgba(227,43,32,0.18);
 }
 

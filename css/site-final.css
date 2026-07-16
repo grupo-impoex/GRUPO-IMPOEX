@@ -630,12 +630,6 @@ canvas {
   overflow: visible;
 }
 
-.cert-premium-card.cert-card-basc {
-  height: clamp(560px, 68vh, 720px);
-  min-height: clamp(560px, 68vh, 720px);
-  align-self: start;
-}
-
 .cert-card-inner {
   position: relative;
   width: 100%;
@@ -1060,11 +1054,6 @@ canvas {
   .intel-route small {
     font-size: 0.52rem !important;
   }
-.cert-premium-card.cert-card-basc {
-  height: clamp(520px, 64vh, 660px) !important;
-  min-height: clamp(520px, 64vh, 660px) !important;
-  align-self: start !important;
-}
   
 }
 
@@ -1204,54 +1193,6 @@ canvas {
     min-width: 25px !important;
   }
 
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
   .vertical-entry-hero {
     min-height: 100svh !important;
     padding:
@@ -1370,19 +1311,6 @@ canvas {
   .cert-premium-card {
     height: 350px !important;
     min-height: 350px !important;
-  }
-
-  .cert-premium-card.cert-card-basc {
-    height: clamp(520px, 70vh, 590px) !important;
-    min-height: clamp(520px, 70vh, 590px) !important;
-    align-self: start !important;
-  }
-
-  .cert-premium-card.cert-card-basc .cert-card-inner,
-  .cert-premium-card.cert-card-basc .cert-card-front,
-  .cert-premium-card.cert-card-basc .cert-card-back {
-    height: 100% !important;
-    min-height: inherit !important;
   }
 
   .cert-card-front,
@@ -3756,5 +3684,881 @@ body.intro-finished #impoexIntro::after {
 
   #contacto .form-head h3 {
     font-size: clamp(1.55rem, 8vw, 2.2rem) !important;
+  }
+}
+/* =========================================================
+   BLOQUE 02 — Monitor operativo en vivo
+   ========================================================= */
+
+.ops-live-section {
+  min-height: auto !important;
+  display: grid;
+  align-items: start;
+  padding: clamp(36px, 4vw, 58px) var(--section-pad-x) clamp(54px, 5vw, 74px);
+}
+
+.ops-live-section .ops-counter-video-bg {
+  opacity: 1.5;
+  filter:
+    saturate(1.12)
+    contrast(1.04)
+    brightness(1.50);
+}
+
+.ops-live-section .ops-counter-overlay {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(5, 9, 17, 0.70),
+      rgba(5, 9, 17, 0.38),
+      rgba(5, 9, 17, 0.68)
+    ),
+    radial-gradient(circle at 24% 28%, rgba(227, 43, 32, 0.10), transparent 34%),
+    radial-gradient(circle at 78% 36%, rgba(61, 133, 255, 0.10), transparent 38%) !important;
+}
+
+.ops-live-shell {
+  position: relative;
+  z-index: 2;
+  width: min(100%, 1480px);
+  margin: 0 auto;
+}
+
+.ops-live-header {
+  max-width: 980px;
+  margin-bottom: clamp(18px, 2vw, 28px);
+}
+
+.ops-live-header h2 {
+  display: none;
+}
+
+.ops-live-header p {
+  max-width: 980px;
+  color: var(--text-secondary);
+  font-size: clamp(1rem, 1.08vw, 1.16rem);
+  line-height: 1.65;
+  margin: 0;
+}
+
+.ops-live-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(16px, 1.8vw, 28px);
+}
+
+.ops-live-card {
+  position: relative;
+  overflow: hidden;
+  min-height: 320px;
+  padding: clamp(20px, 1.8vw, 28px);
+  border-radius: 28px;
+  background:
+    radial-gradient(circle at 80% 12%, rgba(227, 43, 32, 0.14), transparent 34%),
+    linear-gradient(150deg, rgba(12, 20, 36, 0.88), rgba(4, 8, 16, 0.76));
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  box-shadow:
+    0 28px 80px rgba(0, 0, 0, 0.34),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(14px);
+  transform: translateZ(0);
+}
+
+.ops-live-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(120deg, transparent 0%, rgba(255, 255, 255, 0.07) 44%, transparent 58%);
+  transform: translateX(-140%);
+  animation: opsLiveScan 6.8s ease-in-out infinite;
+}
+
+.ops-live-card:nth-child(2)::before {
+  animation-delay: 0.8s;
+}
+
+.ops-live-card:nth-child(3)::before {
+  animation-delay: 1.6s;
+}
+
+.ops-live-card:nth-child(4)::before {
+  animation-delay: 2.4s;
+}
+
+@keyframes opsLiveScan {
+  0%, 36% {
+    transform: translateX(-140%);
+  }
+  58%, 100% {
+    transform: translateX(140%);
+  }
+}
+
+.ops-live-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.ops-live-icon {
+  width: 66px;
+  height: 66px;
+  display: grid;
+  place-items: center;
+  border-radius: 20px;
+  background: rgba(227, 43, 32, 0.12);
+  border: 1px solid rgba(227, 43, 32, 0.26);
+  box-shadow: 0 0 24px rgba(227, 43, 32, 0.12);
+}
+
+.ops-live-icon img {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+  filter: brightness(1.15);
+}
+
+.ops-live-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.62);
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.ops-live-status i {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: #44ff9a;
+  box-shadow: 0 0 14px rgba(68, 255, 154, 0.78);
+  animation: opsLivePulse 1.6s ease-in-out infinite;
+}
+
+@keyframes opsLivePulse {
+  0%, 100% {
+    transform: scale(0.86);
+    opacity: 0.62;
+  }
+  50% {
+    transform: scale(1.12);
+    opacity: 1;
+  }
+}
+
+.ops-live-main {
+  position: relative;
+  z-index: 2;
+}
+
+.ops-live-label {
+  display: block;
+  margin-bottom: 12px;
+  color: var(--red);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  line-height: 1.25;
+  text-transform: uppercase;
+}
+
+.ops-live-number-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.ops-live-total {
+  color: #ffffff;
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 4vw, 4.9rem);
+  line-height: 0.88;
+  letter-spacing: -0.055em;
+  text-shadow: 0 0 30px rgba(255, 255, 255, 0.12);
+}
+
+.ops-live-number-row small {
+  margin-bottom: 8px;
+  color: rgba(255, 255, 255, 0.58);
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.ops-live-percent-row {
+  display: grid;
+  gap: 6px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.ops-live-percent {
+  color: #44ff9a;
+  font-family: var(--font-display);
+  font-size: clamp(1.45rem, 2vw, 2rem);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  text-shadow: 0 0 20px rgba(68, 255, 154, 0.14);
+}
+
+.ops-live-percent-row span {
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 0.82rem;
+  line-height: 1.45;
+  font-weight: 700;
+}
+
+.ops-live-progress {
+  position: absolute;
+  left: clamp(20px, 1.8vw, 28px);
+  right: clamp(20px, 1.8vw, 28px);
+  bottom: clamp(18px, 1.6vw, 24px);
+  height: 4px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.09);
+}
+
+.ops-live-progress span {
+  display: block;
+  width: var(--progress, 98%);
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--red), #44ff9a);
+  box-shadow: 0 0 16px rgba(68, 255, 154, 0.24);
+  transform-origin: left center;
+  animation: opsLiveBar 2.8s ease-out both;
+}
+
+@keyframes opsLiveBar {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.ops-live-card.is-updating {
+  border-color: rgba(68, 255, 154, 0.24);
+  box-shadow:
+    0 28px 80px rgba(0, 0, 0, 0.34),
+    0 0 26px rgba(68, 255, 154, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.ops-live-card-static .ops-live-status {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.ops-live-card-static .ops-live-status i {
+  background: var(--red);
+  box-shadow: 0 0 14px rgba(227, 43, 32, 0.7);
+  animation: none;
+}
+
+.ops-live-footer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 12px;
+  margin-top: 18px;
+  color: rgba(255, 255, 255, 0.56);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.ops-live-footer strong {
+  color: #ffffff;
+  font-weight: 900;
+}
+
+@media (max-width: 1180px) {
+  .ops-live-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .ops-live-section {
+    min-height: auto !important;
+  }
+}
+
+@media (max-width: 680px) {
+  .ops-live-section {
+    padding: 28px 18px 56px;
+  }
+
+  .ops-live-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ops-live-card {
+    min-height: 280px;
+    border-radius: 24px;
+  }
+
+  .ops-live-icon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .ops-live-icon img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .ops-live-footer {
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 6px;
+  }
+}
+
+/* =========================================================
+   COBERTURA — PANGEA FLOTANTE SIN BOX
+   Reemplaza visualmente la tarjeta anterior por logos integrados
+   ========================================================= */
+
+.coverage-clean-section {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.coverage-clean-section .panel-bg {
+  opacity: 0.9;
+}
+
+.coverage-clean-section::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(5, 9, 17, 0.94),
+      rgba(5, 9, 17, 0.50),
+      rgba(5, 9, 17, 0.82)
+    ),
+    radial-gradient(circle at 72% 48%, rgba(227, 43, 32, 0.22), transparent 36%);
+}
+
+.coverage-clean-grid {
+  position: relative;
+  z-index: 3;
+  grid-template-columns: minmax(420px, 0.78fr) minmax(620px, 1.22fr) !important;
+}
+
+.coverage-clean-copy {
+  position: relative;
+  z-index: 5;
+}
+
+.coverage-clean-copy h2 em {
+  color: var(--red);
+  font-style: normal;
+}
+
+.coverage-clean-stats {
+  margin-top: clamp(30px, 3vw, 46px);
+}
+
+/* Visual derecha */
+.coverage-clean-visual {
+  position: relative;
+  min-height: clamp(460px, 62vh, 700px);
+  display: grid;
+  place-items: center;
+  isolation: isolate;
+}
+
+.coverage-clean-glow {
+  position: absolute;
+  left: 56%;
+  top: 48%;
+  width: min(54vw, 620px);
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  border-radius: 999px;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle, rgba(227, 43, 32, 0.28), rgba(227, 43, 32, 0.12) 34%, transparent 68%);
+  filter: blur(14px);
+  animation: coverageCleanGlowPulse 4.8s ease-in-out infinite;
+}
+
+.coverage-clean-map {
+  position: relative;
+  z-index: 2;
+  width: min(100%, 860px);
+  height: auto;
+  overflow: visible;
+  filter:
+    drop-shadow(0 0 28px rgba(227, 43, 32, 0.12))
+    drop-shadow(0 30px 80px rgba(0, 0, 0, 0.36));
+}
+
+/* Rutas */
+.coverage-clean-route {
+  fill: none;
+  stroke: rgba(227, 43, 32, 0.66);
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-dasharray: 12 12;
+  filter: url(#coverageCleanGlow);
+  animation: coverageCleanRouteFlow 4.8s linear infinite;
+}
+
+.coverage-clean-route-main {
+  stroke: rgba(255, 81, 70, 0.96);
+  stroke-width: 3.8;
+  stroke-dasharray: 16 10;
+  animation-duration: 3.2s;
+}
+
+/* Puntos viajeros */
+.coverage-clean-traveler {
+  fill: #ffffff;
+  filter:
+    drop-shadow(0 0 8px rgba(255, 255, 255, 0.90))
+    drop-shadow(0 0 18px rgba(227, 43, 32, 0.72));
+}
+
+.coverage-clean-traveler.soft {
+  fill: #ff5146;
+  opacity: 0.86;
+}
+
+/* Nodos */
+.coverage-clean-node-core {
+  fill: #ffffff;
+  stroke: #e32b20;
+  stroke-width: 4;
+  filter:
+    drop-shadow(0 0 12px rgba(227, 43, 32, 0.58))
+    drop-shadow(0 0 22px rgba(255, 255, 255, 0.14));
+}
+
+.coverage-clean-node-pulse {
+  fill: rgba(227, 43, 32, 0.15);
+  stroke: rgba(227, 43, 32, 0.38);
+  stroke-width: 2;
+  animation: coverageCleanNodePulse 2.8s ease-out infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.coverage-clean-hub-pulse {
+  fill: rgba(227, 43, 32, 0.12);
+  stroke: rgba(255, 255, 255, 0.18);
+  stroke-width: 2;
+  animation: coverageCleanHubPulse 3.4s ease-in-out infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.coverage-clean-hub-core {
+  fill: #ff5146;
+  stroke: #ffffff;
+  stroke-width: 3;
+  filter:
+    drop-shadow(0 0 14px rgba(227, 43, 32, 0.88))
+    drop-shadow(0 0 30px rgba(255, 255, 255, 0.24));
+}
+
+.coverage-clean-node text {
+  fill: rgba(255, 255, 255, 0.78);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+/* Logos flotantes */
+.coverage-floating-logos {
+  position: absolute;
+  left: 57.5%;
+  top: 48%;
+  z-index: 6;
+  transform: translate(-50%, -50%);
+  display: grid;
+  place-items: center;
+  gap: 16px;
+  pointer-events: none;
+  animation: coverageCleanLogoFloat 4.6s ease-in-out infinite;
+}
+
+/* PANGEA grande, sin caja */
+.coverage-pangea-logo {
+  display: block;
+  width: clamp(210px, 20vw, 360px);
+  height: auto;
+  object-fit: contain;
+  opacity: 0.96;
+  mix-blend-mode: screen;
+  filter:
+    drop-shadow(0 0 10px rgba(255, 255, 255, 0.20))
+    drop-shadow(0 0 28px rgba(70, 130, 255, 0.22))
+    drop-shadow(0 18px 42px rgba(0, 0, 0, 0.42));
+}
+
+/* ISO pequeño debajo o al lado, también sin box */
+.coverage-iso-logo {
+  display: block;
+  width: clamp(72px, 7vw, 116px);
+  height: auto;
+  object-fit: contain;
+  opacity: 0.82;
+  mix-blend-mode: screen;
+  filter:
+    drop-shadow(0 0 10px rgba(255, 255, 255, 0.16))
+    drop-shadow(0 12px 28px rgba(0, 0, 0, 0.36));
+}
+
+/* Caption inferior */
+.coverage-clean-caption {
+  position: absolute;
+  right: clamp(18px, 5vw, 80px);
+  bottom: clamp(42px, 7vh, 86px);
+  z-index: 7;
+  display: grid;
+  gap: 7px;
+  padding-left: 18px;
+  border-left: 1px solid rgba(227, 43, 32, 0.58);
+}
+
+.coverage-clean-caption span {
+  color: #ffaaa5;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.coverage-clean-caption strong {
+  color: #ffffff;
+  font-family: var(--font-display);
+  font-size: clamp(1.05rem, 1.55vw, 1.75rem);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+
+/* Oculta por completo estilos de la card anterior si todavía existe algo en caché */
+.coverage-clean-section .pangea-premium-card,
+.coverage-clean-section .pangea-card-bg,
+.coverage-clean-section .pangea-card-border,
+.coverage-clean-section .pangea-logo-bg {
+  display: none !important;
+}
+
+/* Animaciones */
+@keyframes coverageCleanRouteFlow {
+  from {
+    stroke-dashoffset: 0;
+  }
+
+  to {
+    stroke-dashoffset: -160;
+  }
+}
+
+@keyframes coverageCleanGlowPulse {
+  0%, 100% {
+    opacity: 0.72;
+    transform: translate(-50%, -50%) scale(0.96);
+  }
+
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.05);
+  }
+}
+
+@keyframes coverageCleanNodePulse {
+  0% {
+    opacity: 0.72;
+    transform: scale(0.74);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(2.8);
+  }
+}
+
+@keyframes coverageCleanHubPulse {
+  0%, 100% {
+    opacity: 0.58;
+    transform: scale(0.92);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.18);
+  }
+}
+
+@keyframes coverageCleanLogoFloat {
+  0%, 100% {
+    transform: translate(-50%, -50%) translateY(0) scale(1);
+  }
+
+  50% {
+    transform: translate(-50%, -50%) translateY(-8px) scale(1.018);
+  }
+}
+
+/* =========================================================
+   RESPONSIVE COBERTURA
+   ========================================================= */
+
+@media (max-width: 1180px) {
+  .coverage-clean-grid {
+    grid-template-columns: 1fr !important;
+    gap: 34px !important;
+  }
+
+  .coverage-clean-visual {
+    min-height: 520px;
+  }
+
+  .coverage-floating-logos {
+    left: 54%;
+    top: 47%;
+  }
+
+  .coverage-clean-caption {
+    right: 22px;
+    bottom: 40px;
+  }
+}
+
+@media (max-width: 760px) {
+  .coverage-clean-section {
+    padding-top: 104px !important;
+  }
+
+  .coverage-clean-visual {
+    min-height: 460px;
+    margin-top: 16px;
+  }
+
+  .coverage-clean-map {
+    width: 118%;
+    transform: translateX(-8%);
+  }
+
+  .coverage-floating-logos {
+    left: 50%;
+    top: 43%;
+  }
+
+  .coverage-pangea-logo {
+    width: clamp(185px, 58vw, 280px);
+  }
+
+  .coverage-iso-logo {
+    width: clamp(64px, 20vw, 96px);
+  }
+
+  .coverage-clean-caption {
+    left: 18px;
+    right: 18px;
+    bottom: 24px;
+  }
+
+  .coverage-clean-node text {
+    font-size: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .coverage-clean-map {
+    width: 134%;
+    transform: translateX(-17%);
+  }
+
+  .coverage-clean-visual {
+    min-height: 420px;
+  }
+
+  .coverage-pangea-logo {
+    width: 210px;
+  }
+}
+
+/* =========================================================
+   CERTIFICACIONES — Pangea y BASC mismo tamaño
+   Ambos tratados como certificados
+   ========================================================= */
+
+.panel-certifications-premium .cert-premium-visual {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: clamp(18px, 2vw, 28px) !important;
+  align-items: stretch !important;
+}
+
+/* Ambas tarjetas con la misma altura */
+.panel-certifications-premium .cert-premium-card {
+  height: clamp(560px, 68vh, 720px) !important;
+  min-height: clamp(560px, 68vh, 720px) !important;
+  align-self: stretch !important;
+  display: block !important;
+}
+
+/* Asegura que el frente y reverso llenen toda la tarjeta */
+.panel-certifications-premium .cert-card-inner,
+.panel-certifications-premium .cert-card-front,
+.panel-certifications-premium .cert-card-back {
+  height: 100% !important;
+  min-height: inherit !important;
+}
+
+/* Ambos certificados ocupan el mismo espacio visual */
+.panel-certifications-premium .cert-card-certificate {
+  flex: 1 1 auto !important;
+  height: 100% !important;
+  min-height: 0 !important;
+  padding: 0 !important;
+  display: grid !important;
+  place-items: center !important;
+  overflow: hidden !important;
+  background:
+    radial-gradient(circle at 50% 18%, rgba(255,255,255,0.08), transparent 34%),
+    linear-gradient(135deg, rgba(255,255,255,0.045), rgba(255,255,255,0.012)) !important;
+  border: 1px solid rgba(255,255,255,0.10) !important;
+  border-radius: 26px !important;
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+}
+
+/* Imagen del certificado */
+.panel-certifications-premium .cert-card-certificate img {
+  width: 112% !important;
+  height: 112% !important;
+  max-width: none !important;
+  max-height: none !important;
+  object-fit: contain !important;
+  object-position: center !important;
+  display: block !important;
+  border-radius: 20px !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+/* Ajuste visual fino para que Pangea no se vea pequeño */
+.panel-certifications-premium .cert-card-pangea .cert-card-certificate img {
+  width: 114% !important;
+  height: 114% !important;
+}
+
+/* Ajuste visual fino para BASC */
+.panel-certifications-premium .cert-card-basc .cert-card-certificate img {
+  width: 114% !important;
+  height: 114% !important;
+}
+
+/* Headers iguales */
+.panel-certifications-premium .cert-card-header {
+  min-height: 98px;
+  margin-bottom: 18px !important;
+}
+
+/* Laptop compacta: ambos siguen iguales */
+@media (min-width: 1081px) and (max-height: 860px) {
+  .panel-certifications-premium .cert-premium-card {
+    height: clamp(520px, 70vh, 590px) !important;
+    min-height: clamp(520px, 70vh, 590px) !important;
+  }
+
+  .panel-certifications-premium .cert-card-header {
+    min-height: 78px;
+    margin-bottom: 12px !important;
+  }
+
+  .panel-certifications-premium .cert-card-front,
+  .panel-certifications-premium .cert-card-back {
+    padding: 15px !important;
+  }
+
+  .panel-certifications-premium .cert-card-certificate {
+    border-radius: 22px !important;
+  }
+
+  .panel-certifications-premium .cert-card-certificate img {
+    border-radius: 18px !important;
+  }
+}
+
+/* Tablet */
+@media (max-width: 1080px) {
+  .panel-certifications-premium .cert-premium-card {
+    height: clamp(520px, 64vh, 660px) !important;
+    min-height: clamp(520px, 64vh, 660px) !important;
+  }
+}
+
+/* Móvil: se apilan y dejan de girar, pero mantienen presencia */
+@media (max-width: 760px) {
+  .panel-certifications-premium .cert-premium-visual {
+    grid-template-columns: 1fr !important;
+  }
+
+  .panel-certifications-premium .cert-premium-card {
+    height: auto !important;
+    min-height: auto !important;
+  }
+
+  .panel-certifications-premium .cert-card-inner {
+    height: auto !important;
+    min-height: auto !important;
+    display: grid !important;
+    gap: 14px !important;
+  }
+
+  .panel-certifications-premium .cert-card-front,
+  .panel-certifications-premium .cert-card-back {
+    position: relative !important;
+    inset: auto !important;
+    height: auto !important;
+    min-height: auto !important;
+    transform: none !important;
+    backface-visibility: visible !important;
+  }
+
+  .panel-certifications-premium .cert-card-certificate {
+    min-height: 360px !important;
+  }
+
+  .panel-certifications-premium .cert-card-certificate img {
+    width: 108% !important;
+    height: 108% !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .panel-certifications-premium .cert-card-certificate {
+    min-height: 300px !important;
   }
 }

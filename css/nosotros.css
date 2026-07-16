@@ -1223,3 +1223,243 @@
     letter-spacing: .11em;
   }
 }
+
+/* =========================================================
+   TIMELINE — 9 hitos + card giratoria con descripción
+   ========================================================= */
+
+/* Ahora son 9 burbujas */
+.history-track {
+  width: max(100%, 2160px) !important;
+  grid-template-columns: repeat(9, minmax(220px, 1fr)) !important;
+  min-height: 460px !important;
+}
+
+/* La tarjeta mantiene su posición, pero ahora tiene profundidad 3D */
+.history-card {
+  width: min(252px, 100%) !important;
+  height: 184px !important;
+  min-height: 184px !important;
+  padding: 0 !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  perspective: 1200px;
+}
+
+/* Evita que el hover anterior mueva toda la tarjeta */
+.history-card:hover {
+  transform: translateX(-50%) !important;
+}
+
+/* Estructura interna giratoria */
+.history-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Giro al pasar mouse */
+.history-card:hover .history-card-inner,
+.history-card:focus-within .history-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Frente y reverso */
+.history-card-front,
+.history-card-back {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 18px;
+  border-radius: 22px;
+  overflow: hidden;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  background:
+    radial-gradient(circle at 82% 16%, rgba(227,43,32,.14), transparent 34%),
+    linear-gradient(145deg, rgba(13,21,38,.90), rgba(8,13,24,.74));
+  border: 1px solid rgba(255,255,255,.11);
+  box-shadow:
+    0 24px 70px rgba(0,0,0,.28),
+    inset 0 1px 0 rgba(255,255,255,.06);
+}
+
+.history-card-front::before,
+.history-card-back::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(135deg, rgba(255,255,255,.065), transparent 40%),
+    radial-gradient(circle at 20% 86%, rgba(227,43,32,.10), transparent 34%);
+}
+
+/* Frente */
+.history-card-front span,
+.history-card-back span {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  width: fit-content;
+  color: var(--red);
+  font-family: var(--font-mono);
+  font-size: .58rem;
+  letter-spacing: .14em;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.history-card-front h3 {
+  position: relative;
+  z-index: 2;
+  margin: 12px 0 14px !important;
+  color: var(--text-primary);
+  font-size: .98rem;
+  line-height: 1.14;
+  text-transform: uppercase;
+}
+
+/* Texto pequeño de ayuda */
+.history-card-front small {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  width: fit-content;
+  color: rgba(255,255,255,.58);
+  font-family: var(--font-mono);
+  font-size: .55rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(227,43,32,.65);
+  padding-bottom: 5px;
+}
+
+/* Reverso con descripción */
+.history-card-back {
+  transform: rotateY(180deg);
+  justify-content: center;
+  border-color: rgba(227,43,32,.28);
+  background:
+    radial-gradient(circle at 20% 18%, rgba(227,43,32,.20), transparent 36%),
+    linear-gradient(145deg, rgba(15,25,46,.96), rgba(8,13,24,.86));
+}
+
+.history-card-back p {
+  position: relative;
+  z-index: 2;
+  display: block !important;
+  margin: 0 !important;
+  color: var(--text-secondary);
+  font-size: .76rem;
+  line-height: 1.46;
+}
+
+/* Hito actual más marcado */
+.history-event.is-current .history-card-front,
+.history-event.is-current .history-card-back {
+  border-color: rgba(227,43,32,.42);
+  box-shadow:
+    0 26px 80px rgba(0,0,0,.32),
+    0 0 34px rgba(227,43,32,.14),
+    inset 0 1px 0 rgba(255,255,255,.07);
+}
+
+/* Ajuste del año para 9 hitos */
+.history-year {
+  white-space: nowrap;
+}
+
+/* Pantallas bajitas: NO ocultar la descripción del reverso */
+@media (min-width: 1081px) and (max-height: 820px) {
+  .history-track {
+    min-height: 392px !important;
+    width: max(100%, 2100px) !important;
+  }
+
+  .history-card {
+    height: 150px !important;
+    min-height: 150px !important;
+  }
+
+  .history-card-front,
+  .history-card-back {
+    padding: 14px !important;
+    border-radius: 20px;
+  }
+
+  .history-card-front h3 {
+    font-size: .82rem !important;
+    line-height: 1.12 !important;
+  }
+
+  .history-card-front small {
+    font-size: .46rem !important;
+  }
+
+  .history-card-back p {
+    display: block !important;
+    font-size: .66rem !important;
+    line-height: 1.34 !important;
+  }
+}
+
+/* Móvil: sin giro, se muestra la descripción directamente */
+@media (max-width: 720px) {
+  .history-track {
+    width: 100% !important;
+    grid-template-columns: 1fr !important;
+    min-height: auto !important;
+  }
+
+  .history-card,
+  .history-event:nth-child(even) .history-card {
+    height: auto !important;
+    min-height: auto !important;
+    width: 100% !important;
+    perspective: none !important;
+  }
+
+  .history-card:hover {
+    transform: none !important;
+  }
+
+  .history-card-inner {
+    height: auto !important;
+    transform: none !important;
+    display: grid;
+    gap: 10px;
+  }
+
+  .history-card:hover .history-card-inner,
+  .history-card:focus-within .history-card-inner {
+    transform: none !important;
+  }
+
+  .history-card-front,
+  .history-card-back {
+    position: relative !important;
+    inset: auto !important;
+    transform: none !important;
+    backface-visibility: visible !important;
+    min-height: auto !important;
+  }
+
+  .history-card-front small {
+    display: none !important;
+  }
+
+  .history-card-back {
+    padding-top: 16px !important;
+  }
+
+  .history-card-back p {
+    font-size: .82rem !important;
+    line-height: 1.5 !important;
+  }
+}
