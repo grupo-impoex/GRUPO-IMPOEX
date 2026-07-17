@@ -59,6 +59,24 @@
       }
     }
 
+    function updateTopNavActive(id) {
+      if (!id) return;
+
+      const navLinks = document.querySelectorAll('.site-nav a');
+
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+      });
+
+      const matchingLinks = document.querySelectorAll(
+        `.site-nav a[href="#${id}"], .site-nav a[href="index.html#${id}"]`
+      );
+
+      matchingLinks.forEach(link => {
+        link.classList.add('active');
+      });
+    }
+
     function updateUI() {
       dots.forEach((dot, i) => {
         dot.classList.toggle('is-active', i === current);
@@ -74,11 +92,13 @@
         });
       }
 
-      const id = panels[current] && panels[current].dataset.panelId;
+      const id = panels[current] && (panels[current].dataset.panelId || panels[current].id);
 
       if (id && history.replaceState && !isResponsiveMode()) {
         history.replaceState(null, '', `#${id}`);
       }
+
+      updateTopNavActive(id);
 
       document.dispatchEvent(
         new CustomEvent('impoex:panelchange', {
@@ -133,11 +153,13 @@
       if (!hasGsap) return;
 
       const inner = panel.querySelector('.panel-inner');
+
       const visual = panel.querySelector(
-        '.panel-visual, .hero-command, .ecosystem-stack, .service-matrix, .industry-board, .dashboard-card, .lead-form'
+        '.panel-visual, .hero-command, .ecosystem-stack, .service-matrix, .industry-board, .dashboard-card, .lead-form, .cert-premium-grid, .cert-premium-visual'
       );
+
       const cards = panel.querySelectorAll(
-        '.service-card, .industry-card, .ecosystem-card, .contact-points > *'
+        '.service-card, .industry-card, .ecosystem-card, .contact-points > *, .cert-premium-card, .cert-premium-points article'
       );
 
       if (inner) {
@@ -184,6 +206,24 @@
       }
     }
 
+    function forcePanelContent(panel) {
+      if (!panel) return;
+
+      panel.querySelectorAll(
+        '.reveal-up, .spotlight-card, .panel-inner, .cert-premium-grid, .cert-premium-copy, .cert-premium-visual, .cert-premium-card, .cert-card-inner'
+      ).forEach(el => {
+        el.classList.add('is-visible');
+
+        if (hasGsap) {
+          gsap.set(el, {
+            autoAlpha: 1,
+            y: 0,
+            scale: 1
+          });
+        }
+      });
+    }
+
     function goTo(index) {
       if (isResponsiveMode()) {
         resetDeckForResponsive();
@@ -210,6 +250,7 @@
       }
 
       animatePanelIn(panels[current]);
+      forcePanelContent(panels[current]);
       updateUI();
     }
 
@@ -230,6 +271,56 @@
       if (id && history.replaceState) {
         history.replaceState(null, '', `#${id}`);
       }
+
+      forcePanelContent(panels[index]);
+    }
+
+    function goToHashPanel(rawHash) {
+      const id = String(rawHash || '').replace('#', '').trim();
+      if (!id) return false;
+
+      const index = panels.findIndex(panel => {
+        return panel.dataset.panelId === id || panel.id === id;
+      });
+
+      if (index === -1) return false;
+
+      if (isResponsiveMode()) {
+        current = index;
+        resetDeckForResponsive();
+        updateUI();
+
+        window.setTimeout(() => {
+          panels[current].scrollIntoView({
+            behavior: 'auto',
+            block: 'start'
+          });
+        }, 80);
+
+        forcePanelContent(panels[current]);
+        return true;
+      }
+
+      if (hasGsap) {
+        gsap.killTweensOf(track);
+      }
+
+      isAnimating = false;
+      current = index;
+
+      const deckTop = deck.getBoundingClientRect().top + window.scrollY;
+
+      window.scrollTo({
+        top: deckTop,
+        behavior: 'auto'
+      });
+
+      setDeckPosition();
+      updateUI();
+      animatePanelIn(panels[current]);
+      forcePanelContent(panels[current]);
+
+      return true;
     }
 
     function next() {
@@ -375,12 +466,27 @@
     });
 
     /* -----------------------------------------
-       Links internos tipo #soluciones
+       Links internos y links tipo index.html#seccion
        ----------------------------------------- */
 
-    document.querySelectorAll('a[href^="#"]').forEach(link => {
+    document.querySelectorAll('a[href*="#"]').forEach(link => {
       link.addEventListener('click', e => {
-        const id = link.getAttribute('href').slice(1);
+        const rawHref = link.getAttribute('href');
+        if (!rawHref || rawHref === '#') return;
+
+        const url = new URL(rawHref, window.location.href);
+
+        const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+        const targetPath = url.pathname.split('/').pop() || 'index.html';
+
+        const isSamePage =
+          currentPath === targetPath ||
+          (currentPath === '' && targetPath === 'index.html') ||
+          (currentPath === 'index.html' && targetPath === '');
+
+        if (!isSamePage) return;
+
+        const id = url.hash.replace('#', '');
         if (!id) return;
 
         const index = panels.findIndex(panel => {
@@ -390,6 +496,10 @@
         if (index === -1) return;
 
         e.preventDefault();
+
+        if (history.pushState) {
+          history.pushState(null, '', `#${id}`);
+        }
 
         if (isResponsiveMode()) {
           scrollToPanelMobile(index);
@@ -423,35 +533,37 @@
     });
 
     /* -----------------------------------------
-       Hash inicial
+       Hash inicial y navegación desde páginas internas
        ----------------------------------------- */
 
-    const initialId = window.location.hash.replace('#', '');
-    const initialIndex = panels.findIndex(panel => {
-      return panel.dataset.panelId === initialId || panel.id === initialId;
-    });
+    const initialHash = window.location.hash;
 
-    if (initialIndex > -1) {
-      current = initialIndex;
+    if (initialHash) {
+      goToHashPanel(initialHash);
 
-      if (isResponsiveMode()) {
-        resetDeckForResponsive();
+      window.setTimeout(() => {
+        goToHashPanel(window.location.hash);
+      }, 160);
 
-        window.setTimeout(() => {
-          panels[current].scrollIntoView({
-            behavior: 'auto',
-            block: 'start'
-          });
-        }, 80);
-      } else {
-        setDeckPosition();
-      }
+      window.setTimeout(() => {
+        goToHashPanel(window.location.hash);
+      }, 520);
+
+      window.setTimeout(() => {
+        goToHashPanel(window.location.hash);
+      }, 1000);
     } else {
       setDeckPosition();
+      updateUI();
+      animatePanelIn(panels[current]);
+      forcePanelContent(panels[current]);
     }
 
-    updateUI();
-    animatePanelIn(panels[current]);
+    window.addEventListener('hashchange', () => {
+      window.setTimeout(() => {
+        goToHashPanel(window.location.hash);
+      }, 80);
+    });
   }
 
   /* =========================================================

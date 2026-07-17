@@ -47,3 +47,75 @@
     if (!document.getElementById('intro') && header) header.classList.add('is-visible');
   });
 })();
+document.addEventListener('DOMContentLoaded', () => {
+  const desktopLinks = document.querySelectorAll('.site-nav a');
+  const mobileLinks = document.querySelectorAll('#mobile-nav a');
+
+  const allLinks = [...desktopLinks, ...mobileLinks];
+
+  const getPageName = () => {
+    const page = window.location.pathname.split('/').pop();
+    return page || 'index.html';
+  };
+
+  const getLinkData = (link) => {
+    const url = new URL(link.getAttribute('href'), window.location.href);
+    const page = url.pathname.split('/').pop() || 'index.html';
+
+    return {
+      page,
+      hash: url.hash
+    };
+  };
+
+  const clearActiveLinks = () => {
+    allLinks.forEach(link => {
+      link.classList.remove('active');
+    });
+  };
+
+  const setActiveNav = () => {
+    const currentPage = getPageName();
+    const currentHash = window.location.hash || '#inicio';
+
+    clearActiveLinks();
+
+    allLinks.forEach(link => {
+      const data = getLinkData(link);
+
+      const isHome = currentPage === 'index.html' || currentPage === '';
+      const isServicios = currentPage === 'servicios.html';
+      const isNosotros = currentPage === 'nosotros.html';
+
+      if (isHome) {
+        const linkIsHome = data.page === 'index.html' || data.page === '';
+        const sameHash = data.hash === currentHash;
+
+        if (linkIsHome && sameHash) {
+          link.classList.add('active');
+        }
+      }
+
+      if (isServicios && data.page === 'servicios.html') {
+        link.classList.add('active');
+      }
+
+      if (isNosotros && data.page === 'nosotros.html') {
+        link.classList.add('active');
+      }
+    });
+  };
+
+  setActiveNav();
+
+  window.addEventListener('hashchange', setActiveNav);
+
+  window.addEventListener('load', () => {
+    setTimeout(setActiveNav, 250);
+  });
+
+  window.addEventListener('scroll', () => {
+    requestAnimationFrame(setActiveNav);
+  }, { passive: true });
+});
+
