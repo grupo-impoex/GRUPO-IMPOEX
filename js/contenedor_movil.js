@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const cards = Array.from(document.querySelectorAll('.panel-soluciones-containers .home-cargo-service'));
   if (!cards.length) return;
 
-  const supportsHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  const supportsHover = globalThis.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
   /* En desktop usamos hover normal. En touch usamos apertura automática por cercanía al viewport. */
   if (supportsHover) return;

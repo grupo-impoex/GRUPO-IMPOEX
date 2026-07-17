@@ -1,13 +1,14 @@
+
 (() => {
   const intro = document.getElementById('impoexIntro');
   const canvas = document.getElementById('impoexWorld');
   const brandMarkWrap = document.getElementById('brandMarkWrap');
   const brandCopy = document.getElementById('brandCopy');
   const skipButton = document.getElementById('skipIntro');
-  if (!intro || !canvas || !window.THREE) return;
+  if (!intro || !canvas || !globalThis.THREE) return;
 
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const isMobile = () => window.innerWidth < 860;
+  const prefersReducedMotion = globalThis.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const isMobile = () => globalThis.innerWidth < 860;
   const globeRadius = 1.55;
   const particleCount = isMobile() ? 2600 : 4400;
 
@@ -394,7 +395,7 @@
     tempCanvas.height = height;
     const ctx = tempCanvas.getContext('2d', { willReadFrequently: true });
     const pools = [];
-    if (!ctx || !window.Path2D || !paths.length) return pools;
+    if (!ctx || !globalThis.Path2D || !paths.length) return pools;
 
     paths.forEach((path, idx) => {
       const d = path.getAttribute('d');
@@ -468,15 +469,25 @@
     const orbitRadius = globeRadius * (isMobile() ? 1.58 : 1.66);
     const offsets = [0, (Math.PI * 2) / 3, (Math.PI * 4) / 3];
     const orbitSpeed = state.time * 0.92;
-    const fadeWorld = smoothstep(0.18, 0.72, morph);
 
     for (let i = 0; i < particleCount; i++) {
       const i3 = i * 3;
       const groupOffset = offsets[pathIndex[i]];
       const orbitAngle = orbitSpeed + groupOffset + orbitPhase[i] * 0.1;
 
-      const planeTiltX = pathIndex[i] === 0 ? 0.82 : pathIndex[i] === 1 ? -0.68 : 0.18;
-      const planeTiltZ = pathIndex[i] === 0 ? 0.25 : pathIndex[i] === 1 ? -0.22 : 0.58;
+      let planeTiltX;
+    let planeTiltZ;
+
+    if (pathIndex[i] === 0) {
+      planeTiltX = 0.82;
+      planeTiltZ = 0.25;
+    } else if (pathIndex[i] === 1) {
+      planeTiltX = -0.68;
+      planeTiltZ = -0.22;
+    } else {
+      planeTiltX = 0.18;
+      planeTiltZ = 0.58;
+    }
 
       const cx = Math.cos(orbitAngle) * orbitRadius;
       const cy = Math.sin(orbitAngle) * orbitRadius * 0.42 + orbitLift[i];
@@ -606,7 +617,7 @@
       state.targetProgress = progress;
     };
 
-    if (window.gsap && window.ScrollTrigger) {
+    if (globalThis.gsap && globalThis.ScrollTrigger) {
       gsap.registerPlugin(ScrollTrigger);
       ScrollTrigger.create({
         trigger: intro,
