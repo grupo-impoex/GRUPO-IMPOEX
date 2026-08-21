@@ -1,0 +1,91 @@
+/* =========================================================
+   CONTACTO STANDALONE — evita conflictos del deck horizontal
+   ========================================================= */
+
+body.contact-page {
+  background:
+    radial-gradient(circle at 16% 18%, rgba(227,43,32,.12), transparent 32%),
+    radial-gradient(circle at 84% 18%, rgba(52,105,185,.10), transparent 34%),
+    linear-gradient(180deg, #050812 0%, #07101d 48%, #050812 100%);
+  overflow-x: hidden;
+}
+
+body.contact-page #site-header {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.contact-standalone-main {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.contact-standalone-main::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255,255,255,.022) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.022) 1px, transparent 1px);
+  background-size: 56px 56px;
+  opacity: .62;
+  mask-image: radial-gradient(circle at center, black, transparent 78%);
+  z-index: 0;
+}
+
+.contact-standalone-main .panel-contact.contact-command-panel {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: auto !important;
+  min-height: 100vh !important;
+  overflow: visible !important;
+  display: flex !important;
+  align-items: center !important;
+  padding:
+    calc(var(--header-h, 86px) + 42px)
+    clamp(22px, 4vw, 72px)
+    clamp(40px, 6vw, 84px) !important;
+}
+
+.contact-standalone-main .contact-command-grid {
+  width: min(100%, 1680px) !important;
+  margin: 0 auto !important;
+}
+
+.contact-standalone-main .impoex-clean-footer {
+  position: relative !important;
+  left: auto !important;
+  right: auto !important;
+  bottom: auto !important;
+  width: 100% !important;
+  margin: clamp(56px, 7vw, 92px) calc(clamp(22px, 4vw, 72px) * -1) calc(clamp(40px, 6vw, 84px) * -1) !important;
+  padding-left: clamp(22px, 4vw, 72px) !important;
+  padding-right: clamp(22px, 4vw, 72px) !important;
+}
+
+.contact-standalone-main .panel-index b {
+  color: var(--red);
+}
+
+@media (max-width: 1080px) {
+  .contact-standalone-main .panel-contact.contact-command-panel {
+    display: block !important;
+    min-height: auto !important;
+    padding: 116px 18px 72px !important;
+  }
+
+  .contact-standalone-main .contact-command-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+  }
+
+  .contact-standalone-main .impoex-clean-footer {
+    margin: 56px -18px -72px !important;
+    padding-left: 18px !important;
+    padding-right: 18px !important;
+  }
+}

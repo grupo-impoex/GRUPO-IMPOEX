@@ -500,3 +500,50 @@ body.no-intro #site-header {
     display: none;
   }
 }
+
+/* =========================================================
+   LANGUAGE SWITCH — ES / EN
+   ========================================================= */
+.language-switch {
+  min-height: 38px;
+  min-width: 46px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 9px 13px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.18);
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: rgba(255,255,255,.055);
+  backdrop-filter: blur(12px);
+  transition: background .25s var(--ease-soft), border-color .25s var(--ease-soft), transform .25s var(--ease-soft);
+}
+
+.language-switch:hover {
+  background: rgba(227,43,32,.18);
+  border-color: rgba(227,43,32,.62);
+  transform: translateY(-1px);
+}
+
+#mobile-nav .language-switch {
+  width: auto;
+  min-width: 70px;
+  font-family: var(--font-mono) !important;
+  font-size: .8rem !important;
+  letter-spacing: .14em;
+  border: 1px solid rgba(227,43,32,.55);
+  padding: 10px 18px;
+  border-radius: 999px;
+}
+
+@media (max-width: 920px) {
+  #site-header > .language-switch {
+    display: none;
+  }
+}

@@ -86,6 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const isHome = currentPage === 'index.html' || currentPage === '';
       const isServicios = currentPage === 'servicios.html';
       const isNosotros = currentPage === 'nosotros.html';
+      const isContacto = currentPage === 'contacto.html';
 
       if (isHome) {
         const linkIsHome = data.page === 'index.html' || data.page === '';
@@ -101,6 +102,10 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       if (isNosotros && data.page === 'nosotros.html') {
+        link.classList.add('active');
+      }
+
+      if (isContacto && data.page === 'contacto.html') {
         link.classList.add('active');
       }
     });

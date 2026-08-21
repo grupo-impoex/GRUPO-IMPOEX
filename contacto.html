@@ -1,188 +1,302 @@
 <!DOCTYPE html>
-<html lang="es">
+
+<html lang="es-EC">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contacto — Grupo Impoex</title>
-<meta name="description" content="Hablemos de tu próxima carga. Contáctanos para una propuesta logística concreta en menos de 24 horas.">
-<!-- Favicons -->
-<link rel="icon" href="wp-content/uploads/2026/07/FAVICON-IMPOEX.png" sizes="any">
-<link rel="icon" type="image/png" href="wp-content/uploads/2026/07/FAVICON-IMPOEX.png">
-<link rel="apple-touch-icon" href="wp-content/uploads/2026/07/FAVICON-IMPOEX.png">
-<link rel="stylesheet" href="css/base.css">
-<link rel="stylesheet" href="css/nav.css">
-<link rel="stylesheet" href="css/components.css">
-<link rel="stylesheet" href="css/responsive.css">
-<style>
-  .contact-layout {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 70px;
-    max-width: 1300px;
-    margin: 0 auto;
-    padding: 0 clamp(24px, 6vw, 90px) 110px;
-  }
-
-  .contact-info-item {
-    display: flex;
-    gap: 16px;
-    align-items: flex-start;
-    padding: 22px 0;
-    border-bottom: 1px solid var(--line);
-  }
-  .contact-info-item:first-child { padding-top: 0; }
-  .contact-info-item svg { width: 20px; height: 20px; stroke: var(--red); flex-shrink: 0; margin-top: 2px; }
-  .contact-info-item .label { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-tertiary); margin-bottom: 5px; }
-  .contact-info-item .value { font-size: 1rem; color: var(--text-primary); }
-
-  form.contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 22px;
-  }
-  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-  .field { display: flex; flex-direction: column; gap: 8px; }
-  .field label {
-    font-family: var(--font-mono);
-    font-size: 0.7rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--text-tertiary);
-  }
-  .field input, .field select, .field textarea {
-    background: var(--bg-elevated);
-    border: 1px solid var(--line);
-    color: var(--text-primary);
-    padding: 14px 16px;
-    font-family: var(--font-body);
-    font-size: 0.95rem;
-    border-radius: 2px;
-    transition: border-color 0.2s;
-  }
-  .field input:focus, .field select:focus, .field textarea:focus {
-    border-color: var(--red);
-    outline: none;
-  }
-  .field textarea { resize: vertical; min-height: 120px; }
-
-  .submit-row { display: flex; align-items: center; gap: 18px; margin-top: 6px; }
-  .form-note { font-size: 0.8rem; color: var(--text-tertiary); }
-
-  @media (max-width: 880px) {
-    .contact-layout { grid-template-columns: 1fr; gap: 50px; }
-    .form-row { grid-template-columns: 1fr; }
-  }
-</style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Contacto y Cotizaciones | Grupo IMPOEX</title>
+<meta content="Solicita una cotización a Grupo IMPOEX para comercio exterior, logística integral, consolidación de carga, transporte internacional, aduanas y entrega nacional." name="description"/>
+<meta content="index, follow, max-image-preview:large" name="robots"/>
+<link href="https://www.impoex.ec/contacto.html" rel="canonical"/>
+<link href="https://www.impoex.ec/contacto.html" hreflang="es-EC" rel="alternate"/>
+<link href="https://www.impoex.ec/en/contacto.html" hreflang="en" rel="alternate"/>
+<link href="https://www.impoex.ec/contacto.html" hreflang="x-default" rel="alternate"/>
+<link href="wp-content/uploads/2026/07/FAVICON-IMPOEX.png" rel="icon" sizes="any"/>
+<link href="wp-content/uploads/2026/07/FAVICON-IMPOEX.png" rel="icon" type="image/png"/>
+<link href="wp-content/uploads/2026/07/FAVICON-IMPOEX.png" rel="apple-touch-icon"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="css/base.css" rel="stylesheet"/>
+<link href="css/nav.css" rel="stylesheet"/>
+<link href="css/deck.css" rel="stylesheet"/>
+<link href="css/components.css" rel="stylesheet"/>
+<link href="css/home-v2.css" rel="stylesheet"/>
+<link href="css/site-final.css" rel="stylesheet"/>
+<link href="css/responsive.css" rel="stylesheet"/>
+<link href="css/contact-standalone.css" rel="stylesheet"/>
 </head>
-<body>
-
-<header id="site-header" class="is-visible">
-  <a href="index.html" class="logo-mark">
-    <svg viewBox="0 0 600 650" xmlns="http://www.w3.org/2000/svg">
-      <g transform="translate(-100, -200)">
-        <path fill="#e32b20" d="M318.84,661.05c78.35,51.93,162.88,61.62,252.53,38.71,12.19-3.12,29.18-16.09,35.72,6.08,6.15,20.86-13.51,22.06-25.99,26.41-70.54,24.58-141.8,26.4-213.87,6.59-14.65-4.03-29.29-10.46-45.23-7.63-33.13-22.37-66.26-44.73-99.39-67.1-52.17-53.55-91.31-113.96-104.56-190.02C82.47,269.9,246.36,107.84,417.09,124.28c47.39,4.57,34.97-30.15,47.61-55.24,28.74,42.97,56.15,84.46,84.21,125.51,7.12,10.41-.2,13.75-6.4,18-39.16,26.85-78.4,53.56-119.2,81.4-1.23-5.95-2.72-9.02-2.31-11.8q9.13-60.83-50.7-57.61c-93.96,5.05-178.13,91.73-182.7,189.64-2.87,61.42,4.65,120.34,49.82,167.4,15.81,38.41,48.25,59.32,81.43,79.47Z"/>
-        <path fill="#fff" d="M318.84,661.05c-33.18-20.14-65.62-41.06-81.43-79.47,34.9-119.12,158.2-219.59,292.05-207.59,90.01,8.07,158.06,52.49,203.41,131.63,25.87,45.14,25.33,45.46,73.81,45.46-29.01,41.46-57.21,81.34-84.88,121.6-6.62,9.63-11.59,9.66-20.87,2.82-38.2-28.14-77.1-55.32-115.5-82.67,2.28-4.24,2.84-7.15,4.35-7.79,11.8-5.02,30.57,4.83,35.94-8.9,6.26-16.02-9.35-28.48-19.06-40.08-51.39-61.4-143.72-66.27-211.89-11.38-43.44,34.98-69.49,80.13-75.93,136.37Z"/>
-        <path fill="#fff" d="M222.6,664.11c33.13,22.37,66.26,44.73,99.39,67.1,34.78,136.29,149.48,213.16,269.82,208.41,173.29-6.84,312.35-152.82,328.35-320.92,3.2-33.67,1.53-67.32-1.27-100.92-1.15-13.78-3.1-30.45,13.89-32.73,17.59-2.37,23.54,14.33,26.17,28.93,20.88,115.62.96,224.06-66.81,319.28-88.88,124.86-208.94,189.67-364.37,175.87-142.06-12.61-276.59-139.01-299.38-281.77-3.32-20.83-10.4-41.57-5.79-63.24Z"/>
-      </g>
-    </svg>
-    <span class="logo-text">GRUPO IMPOEX<span>Comercio Exterior</span></span>
-  </a>
-  <nav id="site-nav-links" class="site-nav">
-    <a href="index.html">Inicio</a>
-    <a href="nosotros.html">Nosotros</a>
-    <a href="servicios.html">Servicios</a>
-    <a href="contacto.html" class="active">Contacto</a>
-  </nav>
-  <a href="contacto.html" id="nav-cta">Solicitar cotización</a>
-  <button id="nav-toggle" aria-label="Abrir menú"><span></span><span></span><span></span></button>
-</header>
-
-<div id="mobile-nav">
-  <a href="index.html">Inicio</a>
-  <a href="nosotros.html">Nosotros</a>
-  <a href="servicios.html">Servicios</a>
-  <a href="contacto.html">Contacto</a>
-  <a href="contacto.html" class="btn-primary" style="margin-top:8px;">Solicitar cotización</a>
-  <span class="mono-stat">+593 99 978 4863</span>
+<body class="contact-page no-intro">
+<header id="site-header">
+<a aria-label="Grupo Impoex inicio" class="impoex-navbar-brand" href="index.html">
+<div class="brand-icon">
+<svg fill="none" viewbox="0 0 220 240" xmlns="http://www.w3.org/2000/svg">
+<path d="M52.491,151.07c19.993,13.252,41.565,15.723,64.44,9.877,3.111-.795,7.446-4.106,9.114,1.552,1.57,5.324-3.446,5.629-6.632,6.739-18,6.273-36.184,6.738-54.576,1.683-3.738-1.028-7.474-2.67-11.541-1.947-8.454-5.708-16.909-11.415-25.363-17.123-13.314-13.666-23.3-29.082-26.682-48.49C-7.827,51.256,33.995,9.9,77.563,14.096c12.093,1.165,8.923-7.694,12.149-14.096,7.335,10.965,14.329,21.554,21.488,32.028,1.816,2.657-.052,3.509-1.634,4.593-9.992,6.852-20.008,13.668-30.418,20.771-.313-1.519-.695-2.303-.589-3.011q2.329-15.523-12.938-14.701c-23.978,1.288-45.455,23.408-46.621,48.394-.732,15.674,1.187,30.707,12.712,42.718,4.033,9.801,12.312,15.138,20.779,20.278Z" fill="#e12f22"></path>
+<path d="M52.491,151.07c-8.466-5.14-16.745-10.477-20.779-20.278,8.905-30.397,40.37-56.035,74.526-52.974,22.969,2.059,40.334,13.395,51.907,33.588,6.602,11.52,6.463,11.602,18.834,11.602-7.403,10.58-14.599,20.758-21.659,31.031-1.688,2.456-2.958,2.465-5.327.719-9.748-7.182-19.675-14.115-29.474-21.096.582-1.082.726-1.825,1.11-1.989,3.011-1.281,7.801,1.233,9.172-2.271,1.599-4.087-2.386-7.266-4.865-10.228-13.114-15.668-36.674-16.911-54.069-2.904-11.085,8.926-17.732,20.448-19.375,34.799Z" fill="#ffffff"></path>
+<path d="M27.934,151.852c8.454,5.708,16.909,11.415,25.363,17.123,8.875,34.779,38.146,54.394,68.854,53.182,44.222-1.746,79.707-38.996,83.79-81.893.818-8.593.39-17.178-.325-25.752-.293-3.515-.79-7.77,3.545-8.353,4.49-.604,6.006,3.658,6.678,7.382,5.329,29.504.245,57.177-17.05,81.474-22.68,31.863-53.319,48.4-92.982,44.88-36.251-3.217-70.58-35.474-76.396-71.904-.848-5.314-2.653-10.608-1.478-16.139Z" fill="#ffffff"></path>
+</svg>
 </div>
-
-<main>
-  <section class="page-hero" style="padding-bottom: 60px;">
-    <div class="page-hero-inner">
-      <span class="eyebrow">Contacto</span>
-      <h1 class="display-xl" style="font-size:clamp(2.4rem, 5vw, 4.2rem); margin:20px 0 26px;">
-        Hablemos de tu<br>próxima carga
-      </h1>
-      <p style="font-size:1.1rem; color:var(--text-secondary); max-width:620px; line-height:1.65;">
-        Cuéntanos qué necesitas mover y te respondemos con una propuesta concreta en menos de 24 horas.
+<div class="brand-text">
+<span class="nav-grupo">GRUPO</span>
+<span class="nav-impoex">IMPOEX</span>
+<span class="nav-tagline">Logística y comercio exterior</span>
+</div>
+</a>
+<nav aria-label="Navegación principal" class="site-nav" id="site-nav-links">
+<a class="" href="index.html#inicio">Inicio</a>
+<a class="" href="index.html#soluciones">Soluciones</a>
+<a class="" href="index.html#cobertura">Cobertura</a>
+<a class="" href="index.html#industrias">Industrias</a>
+<div class="nav-cert-menu">
+<a class="nav-cert-link" href="index.html#certificaciones">
+      Certificaciones
+      <span aria-hidden="true" class="nav-cert-arrow"></span>
+</a>
+<div class="nav-cert-dropdown">
+<a class="nav-cert-adn-card" href="nosotros.html" style="--nav-cert-image:url('../wp-content/uploads/2026/07/ChatGPT-Image-13-jul-2026-03_36_57-p.m.png');">
+<strong>ADN IMPOEX</strong>
+<small>Conoce nuestra historia, visión, cultura y valores del grupo.</small>
+</a>
+</div>
+</div>
+<a class="active" href="contacto.html">Contacto</a>
+</nav>
+<a aria-label="View site in English" class="language-switch" href="en/contacto.html">EN</a><a href="contacto.html" id="nav-cta">Solicitar cotización</a>
+<button aria-expanded="false" aria-label="Abrir menú" id="nav-toggle">
+<span></span><span></span><span></span>
+</button>
+</header><div aria-hidden="true" id="mobile-nav">
+<a href="index.html#inicio">Inicio</a>
+<a href="index.html#grupo">Grupo Impoex</a>
+<a href="index.html#soluciones">Soluciones</a>
+<a href="index.html#cobertura">Cobertura</a>
+<a href="index.html#industrias">Industrias</a>
+<a href="index.html#certificaciones">Certificaciones</a>
+<a class="btn-primary" href="contacto.html">Solicitar cotización</a>
+<a aria-label="View site in English" class="language-switch" href="en/contacto.html">EN</a><span class="mono-stat">info@impoex.ec · +593 99 839 8221</span>
+</div><main class="contact-standalone-main"><section class="panel panel-contact contact-command-panel" data-panel-id="contacto" id="contacto" style="--panel-image:url('../wp-content/uploads/2026/06/CAMION-IMPOEX-1.png')">
+<div aria-hidden="true" class="panel-bg"></div>
+<div class="contact-command-grid">
+<!-- COLUMNA IZQUIERDA -->
+<div class="contact-command-copy">
+<span class="panel-index"><b>07</b> / 07 — Contacto</span>
+<span class="eyebrow">Centro de coordinación logística</span>
+<h2>
+        Hablemos de una<br/>
+<em>operación precisa</em>
+</h2>
+<p class="lede">
+        Cuéntanos qué necesitas mover, desde dónde y hacia dónde. Nuestro equipo revisará tu requerimiento y te ayudará a definir la solución más eficiente para tu operación.
       </p>
-    </div>
-  </section>
-
-  <div class="contact-layout">
-    <div>
-      <div class="contact-info-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-        <div><div class="label">Teléfono</div><div class="value">+593 99 839 8221</div></div>
-      </div>
-      <div class="contact-info-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg>
-        <div><div class="label">Correo</div><div class="value">info@grupoimpoex.com</div></div>
-      </div>
-      <div class="contact-info-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        <div><div class="label">Oficina</div><div class="value">Catalina Aldaz N34-168 y Portugal<br>(Edif. La Recoleta Piso 9 Of. 96)</div></div>
-      </div>
-      <div class="contact-info-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-        <div><div class="label">Horario de atención</div><div class="value">Lunes a viernes, 8:00 – 17:00</div></div>
-      </div>
-    </div>
-
-    <form class="contact-form" onsubmit="event.preventDefault(); this.querySelector('.submit-row button').textContent='Enviado ✓';">
-      <div class="form-row">
-        <div class="field">
-          <label for="nombre">Nombre</label>
-          <input type="text" id="nombre" name="nombre" required>
-        </div>
-        <div class="field">
-          <label for="empresa">Empresa</label>
-          <input type="text" id="empresa" name="empresa">
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="field">
-          <label for="correo">Correo electrónico</label>
-          <input type="email" id="correo" name="correo" required>
-        </div>
-        <div class="field">
-          <label for="telefono">Teléfono</label>
-          <input type="tel" id="telefono" name="telefono">
-        </div>
-      </div>
-      <div class="field">
-        <label for="servicio">Servicio de interés</label>
-        <select id="servicio" name="servicio">
-          <option>Transporte internacional</option>
-          <option>Agenciamiento de aduanas</option>
-          <option>Transporte de carga nacional</option>
-          <option>Almacenamiento y distribución</option>
-          <option>Consultoría en comercio exterior</option>
-        </select>
-      </div>
-      <div class="field">
-        <label for="mensaje">Mensaje</label>
-        <textarea id="mensaje" name="mensaje" placeholder="Cuéntanos qué necesitas mover, desde dónde y hacia dónde."></textarea>
-      </div>
-      <div class="submit-row">
-        <button type="submit" class="btn-primary">Enviar mensaje</button>
-        <span class="form-note">Respondemos en menos de 24 horas hábiles.</span>
-      </div>
-    </form>
-  </div>
-</main>
-
-
+<div class="contact-command-points">
+<a class="contact-command-point spotlight-card" href="tel:+593998398221">
+<span>
+<svg fill="none" stroke="currentColor" stroke-width="1.7" viewbox="0 0 24 24">
+<path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 11.19 19a19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.34 1.77.66 2.61a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.47-1.47a2 2 0 0 1 2.11-.45c.84.32 1.71.54 2.61.66A2 2 0 0 1 22 16.92z"></path>
+</svg>
+</span>
+<div>
+<small>Línea directa</small>
+<strong>+593 99 839 8221</strong>
+</div>
+</a>
+<a class="contact-command-point spotlight-card" href="mailto:info@impoex.ec">
+<span>
+<svg fill="none" stroke="currentColor" stroke-width="1.7" viewbox="0 0 24 24">
+<path d="M4 4h16v16H4z"></path>
+<path d="m22 6-10 7L2 6"></path>
+</svg>
+</span>
+<div>
+<small>Correo comercial</small>
+<strong>info@impoex.ec</strong>
+</div>
+</a>
+<div class="contact-command-point spotlight-card">
+<span>
+<svg fill="none" stroke="currentColor" stroke-width="1.7" viewbox="0 0 24 24">
+<path d="M21 10c0 7-9 12-9 12S3 17 3 10a9 9 0 1 1 18 0z"></path>
+<circle cx="12" cy="10" r="3"></circle>
+</svg>
+</span>
+<div>
+<small>Oficina</small>
+<strong>Catalina Aldaz N34-168 y Portugal (Edif. La Recoleta Piso 9 Of. 96)</strong>
+</div>
+</div>
+</div>
+</div>
+<!-- COLUMNA DERECHA -->
+<div class="contact-command-area">
+<div class="contact-intel-card spotlight-card">
+<div class="intel-card-header">
+<span>IMPOEX CONTROL</span>
+<b>Solicitud en análisis</b>
+</div>
+<div class="intel-route">
+<div>
+<span class="intel-node is-active"></span>
+<small>Origen</small>
+</div>
+<div class="intel-line"></div>
+<div>
+<span class="intel-node"></span>
+<small>Aduana</small>
+</div>
+<div class="intel-line"></div>
+<div>
+<span class="intel-node"></span>
+<small>Destino</small>
+</div>
+</div>
+<div class="intel-kpis">
+<div>
+<strong>24h</strong>
+<span>Respuesta estimada</span>
+</div>
+<div>
+<strong>360°</strong>
+<span>Visión operativa</span>
+</div>
+</div>
+</div>
+<form action="send-cotizacion.php" class="lead-form contact-premium-form spotlight-card" id="contactForm" method="POST">
+<div class="form-head">
+<span>Solicitud de cotización</span>
+<h3>Datos de la operación</h3>
+<p>Mientras más claro sea el requerimiento, más precisa será la propuesta.</p>
+</div>
+<!-- Antispam invisible -->
+<input aria-hidden="true" autocomplete="off" class="impoex-honeypot" name="website" tabindex="-1" type="text"/>
+<label class="form-full">
+    Ruta o resumen de la operación
+    <input name="operacion" placeholder="Ej.: carga aérea desde Miami a Quito, 120 kg" type="text"/>
+</label>
+<div class="form-row">
+<label>
+      Nombre *
+      <input name="nombre" placeholder="Nombre y apellido" required="" type="text"/>
+</label>
+<label>
+      Empresa
+      <input name="empresa" placeholder="Nombre de la empresa" type="text"/>
+</label>
+</div>
+<div class="form-row">
+<label>
+      Correo *
+      <input name="correo" placeholder="correo@empresa.com" required="" type="email"/>
+</label>
+<label>
+      Teléfono *
+      <input name="telefono" placeholder="+593" type="tel"/>
+</label>
+</div>
+<div class="form-row">
+<label>
+      Servicio
+      <select name="servicio">
+<option value="Operación integral">Operación integral</option>
+<option value="Transporte internacional">Transporte internacional</option>
+<option value="Agenciamiento aduanero">Agenciamiento aduanero</option>
+<option value="Importación / Exportación">Importación / Exportación</option>
+<option value="Logística de entrega">Logística de entrega</option>
+<option value="Consultoría aduanera">Consultoría aduanera</option>
+<option value="Asesoría legal">Asesoría legal</option>
+</select>
+</label>
+<label>
+      Urgencia
+      <select name="urgencia">
+<option value="Planificación regular">Planificación regular</option>
+<option value="Respuesta en 24 horas">Respuesta en 24 horas</option>
+<option value="Urgente">Urgente</option>
+<option value="Solo información">Solo información</option>
+</select>
+</label>
+</div>
+<label class="form-full">
+    Detalle de la carga
+    <textarea name="mensaje" placeholder="Ej.: carga aérea desde Miami a Quito, 120 kg, documentos listos, entrega urgente..."></textarea>
+</label>
+<label class="form-consent form-full">
+<input name="acepta_politicas" required="" type="checkbox" value="Si"/>
+<span>
+    Acepto la 
+    <a href="politica-privacidad.html" rel="noopener" target="_blank">
+      Política de Privacidad
+    </a>
+    y los
+    <a href="terminos-condiciones.html" rel="noopener" target="_blank">
+      Términos y Condiciones
+    </a>.
+     Autorizo el tratamiento de mis datos personales para atender mi solicitud,
+    realizar seguimiento comercial y gestionar la prospección del cliente, incluyendo
+    herramientas tecnológicas o asistidas por inteligencia artificial conforme a las finalidades informadas.
+  </span>
+</label>
+<button class="btn-primary magnetic" type="submit">
+    Enviar solicitud <span>→</span>
+</button>
+<p class="form-disclaimer">
+    Tu requerimiento será revisado por el equipo comercial y operativo de Grupo IMPOEX, tendrás notificaciones sobre el estado de tu solicitud a la brevedad posible.
+  </p>
+<div aria-live="polite" class="form-status"></div>
+</form>
+</div>
+</div>
+<footer class="impoex-clean-footer footer-contact-below" id="site-footer" style="--footer-bg-image:url('../wp-content/uploads/2026/06/MUNDO-IMPOEX-1.png');">
+<div aria-hidden="true" class="footer-clean-overlay"></div>
+<div class="footer-clean-shell">
+<div class="footer-clean-main">
+<!-- IZQUIERDA: CTA -->
+<div class="footer-clean-cta">
+<span>Centro de cotización</span>
+<h3>Consigue tu mejor tarifa</h3>
+<p>Cuéntanos tu origen, destino y tipo de carga. Te ayudamos a encontrar la mejor solución logística.</p>
+<a class="footer-clean-button" href="contacto.html">
+          Calcular mi carga <b>→</b>
+</a>
+</div>
+<!-- CENTRO: LOGO -->
+<div class="footer-clean-brand">
+<div class="footer-clean-logo">
+<span class="footer-orbit footer-orbit-one"></span>
+<span class="footer-orbit footer-orbit-two"></span>
+<svg fill="none" viewbox="0 0 220 240" xmlns="http://www.w3.org/2000/svg">
+<path d="M52.491,151.07c19.993,13.252,41.565,15.723,64.44,9.877,3.111-.795,7.446-4.106,9.114,1.552,1.57,5.324-3.446,5.629-6.632,6.739-18,6.273-36.184,6.738-54.576,1.683-3.738-1.028-7.474-2.67-11.541-1.947-8.454-5.708-16.909-11.415-25.363-17.123-13.314-13.666-23.3-29.082-26.682-48.49C-7.827,51.256,33.995,9.9,77.563,14.096c12.093,1.165,8.923-7.694,12.149-14.096,7.335,10.965,14.329,21.554,21.488,32.028,1.816,2.657-.052,3.509-1.634,4.593-9.992,6.852-20.008,13.668-30.418,20.771-.313-1.519-.695-2.303-.589-3.011q2.329-15.523-12.938-14.701c-23.978,1.288-45.455,23.408-46.621,48.394-.732,15.674,1.187,30.707,12.712,42.718,4.033,9.801,12.312,15.138,20.779,20.278Z" fill="#e12f22"></path>
+<path d="M52.491,151.07c-8.466-5.14-16.745-10.477-20.779-20.278,8.905-30.397,40.37-56.035,74.526-52.974,22.969,2.059,40.334,13.395,51.907,33.588,6.602,11.52,6.463,11.602,18.834,11.602-7.403,10.58-14.599,20.758-21.659,31.031-1.688,2.456-2.958,2.465-5.327.719-9.748-7.182-19.675-14.115-29.474-21.096.582-1.082.726-1.825,1.11-1.989,3.011-1.281,7.801,1.233,9.172-2.271,1.599-4.087-2.386-7.266-4.865-10.228-13.114-15.668-36.674-16.911-54.069-2.904-11.085,8.926-17.732,20.448-19.375,34.799Z" fill="#ffffff"></path>
+<path d="M27.934,151.852c8.454,5.708,16.909,11.415,25.363,17.123,8.875,34.779,38.146,54.394,68.854,53.182,44.222-1.746,79.707-38.996,83.79-81.893.818-8.593.39-17.178-.325-25.752-.293-3.515-.79-7.77,3.545-8.353,4.49-.604,6.006,3.658,6.678,7.382,5.329,29.504.245,57.177-17.05,81.474-22.68,31.863-53.319,48.4-92.982,44.88-36.251-3.217-70.58-35.474-76.396-71.904-.848-5.314-2.653-10.608-1.478-16.139Z" fill="#ffffff"></path>
+</svg>
+</div>
+<span>GRUPO</span>
+<strong>IMPOEX</strong>
+<small>Logística y comercio exterior</small>
+</div>
+<!-- DERECHA: ENLACES -->
+<div class="footer-clean-links">
+<div>
+<h4>Navegación</h4>
+<a href="index.html#inicio">Inicio</a>
+<a href="nosotros.html">ADN IMPOEX</a>
+<a href="servicios.html">Soluciones</a>
+<a href="index.html#certificaciones">Certificaciones</a>
+</div>
+<div>
+<h4>Contacto</h4>
+<a href="mailto:info@impoex.ec">info@impoex.ec</a>
+<a href="tel:+593998398221">+593 99 839 8221</a>
+<p>Quito, Ecuador</p>
+</div>
+</div>
+</div>
+<div class="footer-clean-bottom">
+<span>© 2026 Grupo IMPOEX. Todos los derechos reservados.</span>
+<span>IMPOEX · López Aduanas · EagleTransport</span>
+</div>
+</div>
+</footer>
+</section></main>
 <script src="js/nav.js"></script>
+<script src="js/contact-form.js"></script>
 </body>
 </html>

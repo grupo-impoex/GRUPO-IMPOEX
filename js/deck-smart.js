@@ -9,6 +9,26 @@
   const isResponsiveMode = () => window.matchMedia(`(max-width: ${RESPONSIVE_BREAKPOINT}px)`).matches;
   const hasGsap = () => typeof gsap !== 'undefined';
 
+
+  function prepareDirectHashEntry() {
+    const id = window.location.hash.replace('#', '').trim();
+    const deckIds = ['grupo', 'soluciones', 'cobertura', 'industrias', 'certificaciones', 'contacto'];
+    if (!deckIds.includes(id)) return;
+
+    const intro = document.getElementById('impoexIntro');
+    if (intro) {
+      intro.style.display = 'none';
+      intro.style.height = '0';
+      intro.style.minHeight = '0';
+      intro.setAttribute('aria-hidden', 'true');
+    }
+
+    document.body.classList.add('impoex-direct-deck', 'impoex-intro-skipped', 'impoex-intro-passed', 'intro-finished');
+
+    const header = document.getElementById('site-header');
+    if (header) header.classList.add('is-visible');
+  }
+
   function initCounters() {
     const counters = document.querySelectorAll('[data-count]');
     if (!counters.length) return;
@@ -328,6 +348,7 @@
   }
 
   function boot() {
+    prepareDirectHashEntry();
     initCounters();
     initDeck();
     initSpotlightCards();

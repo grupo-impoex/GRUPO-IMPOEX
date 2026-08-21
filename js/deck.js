@@ -69,7 +69,9 @@
       });
 
       const matchingLinks = document.querySelectorAll(
-        `.site-nav a[href="#${id}"], .site-nav a[href="index.html#${id}"]`
+        id === 'contacto'
+          ? `.site-nav a[href="#${id}"], .site-nav a[href="index.html#${id}"], .site-nav a[href="contacto.html"]`
+          : `.site-nav a[href="#${id}"], .site-nav a[href="index.html#${id}"]`
       );
 
       matchingLinks.forEach(link => {
@@ -536,7 +538,12 @@
        Hash inicial y navegación desde páginas internas
        ----------------------------------------- */
 
-    const initialHash = window.location.hash;
+    const storedHash = sessionStorage.getItem('impoex_target_hash');
+    if (storedHash) {
+      sessionStorage.removeItem('impoex_target_hash');
+    }
+
+    const initialHash = storedHash || window.location.hash;
 
     if (initialHash) {
       goToHashPanel(initialHash);

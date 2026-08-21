@@ -1225,13 +1225,13 @@
 }
 
 /* =========================================================
-   TIMELINE — 9 hitos + card giratoria con descripción
+   TIMELINE — 11 hitos + card giratoria con descripción
    ========================================================= */
 
-/* Ahora son 9 burbujas */
+/* Ahora son 11 burbujas */
 .history-track {
-  width: max(100%, 2160px) !important;
-  grid-template-columns: repeat(9, minmax(220px, 1fr)) !important;
+  width: max(100%, 2640px) !important;
+  grid-template-columns: repeat(11, minmax(220px, 1fr)) !important;
   min-height: 460px !important;
 }
 
@@ -1370,7 +1370,7 @@
     inset 0 1px 0 rgba(255,255,255,.07);
 }
 
-/* Ajuste del año para 9 hitos */
+/* Ajuste del año para 11 hitos */
 .history-year {
   white-space: nowrap;
 }
@@ -1379,7 +1379,7 @@
 @media (min-width: 1081px) and (max-height: 820px) {
   .history-track {
     min-height: 392px !important;
-    width: max(100%, 2100px) !important;
+    width: max(100%, 2580px) !important;
   }
 
   .history-card {
@@ -1461,5 +1461,109 @@
   .history-card-back p {
     font-size: .82rem !important;
     line-height: 1.5 !important;
+  }
+}
+
+/* =========================================================
+   TIMELINE ADN IMPOEX — Soporte para más hitos
+   ========================================================= */
+
+.timeline-track {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 56px minmax(0, 1fr);
+  gap: 34px 28px;
+  align-items: stretch;
+}
+
+/* Línea central */
+.timeline-track::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  transform: translateX(-50%);
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(255, 255, 255, 0.28),
+    rgba(227, 43, 32, 0.65),
+    rgba(255, 255, 255, 0.28),
+    transparent
+  );
+  z-index: 0;
+}
+
+/* Todos los hitos */
+.timeline-item {
+  position: relative;
+  z-index: 2;
+}
+
+/* Hitos impares a la izquierda */
+.timeline-item:nth-child(odd) {
+  grid-column: 1;
+}
+
+/* Hitos pares a la derecha */
+.timeline-item:nth-child(even) {
+  grid-column: 3;
+}
+
+/* Punto central de cada hito */
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  top: 32px;
+  width: 14px;
+  height: 14px;
+  border-radius: 999px;
+  background: #e32b20;
+  box-shadow: 0 0 0 8px rgba(227, 43, 32, 0.14);
+  z-index: 3;
+}
+
+/* Punto para tarjetas izquierdas */
+.timeline-item:nth-child(odd)::before {
+  right: -35px;
+}
+
+/* Punto para tarjetas derechas */
+.timeline-item:nth-child(even)::before {
+  left: -35px;
+}
+
+/* Separación visual alternada */
+.timeline-item:nth-child(even) {
+  margin-top: 54px;
+}
+
+/* Responsive: en móvil todo en una columna */
+@media (max-width: 860px) {
+  .timeline-track {
+    grid-template-columns: 22px minmax(0, 1fr);
+    gap: 24px;
+  }
+
+  .timeline-track::before {
+    left: 10px;
+    transform: none;
+  }
+
+  .timeline-item,
+  .timeline-item:nth-child(odd),
+  .timeline-item:nth-child(even) {
+    grid-column: 2;
+    margin-top: 0;
+  }
+
+  .timeline-item::before,
+  .timeline-item:nth-child(odd)::before,
+  .timeline-item:nth-child(even)::before {
+    left: -30px;
+    right: auto;
+    top: 28px;
   }
 }

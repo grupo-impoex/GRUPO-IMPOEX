@@ -4852,3 +4852,16 @@ body.intro-finished #impoexIntro::after {
     letter-spacing: 0.055em !important;
   }
 }
+
+/* =========================================================
+   FIX NAVEGACIÓN DIRECTA A SECCIONES DEL INDEX
+   Evita que la intro ocupe espacio cuando se entra desde otra página
+   hacia index.html#contacto, #servicios, #cobertura, etc.
+   ========================================================= */
+body.impoex-direct-deck #impoexIntro {
+  display: none !important;
+  height: 0 !important;
+  min-height: 0 !important;
+  overflow: hidden !important;
+  pointer-events: none !important;
+}

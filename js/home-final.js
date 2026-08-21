@@ -69,6 +69,18 @@
       return;
     }
 
+    const directHash = window.location.hash.replace('#', '').trim();
+    const directDeckIds = ['grupo', 'soluciones', 'cobertura', 'industrias', 'certificaciones', 'contacto'];
+    if (directDeckIds.includes(directHash)) {
+      intro.style.display = 'none';
+      intro.style.height = '0';
+      intro.style.minHeight = '0';
+      intro.setAttribute('aria-hidden', 'true');
+      document.body.classList.add('impoex-direct-deck', 'impoex-intro-skipped', 'impoex-intro-passed', 'intro-finished');
+      if (header) header.classList.add('is-visible');
+      return;
+    }
+
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     function setIntroPassed(force = false) {
